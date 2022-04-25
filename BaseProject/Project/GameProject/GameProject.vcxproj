@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Base\Base.h" />
+    <ClInclude Include="Effect\Effect3D.h" />
+    <ClInclude Include="Effect\Effect2D.h" />
+    <ClInclude Include="Effect\EffectCollection.h" />
+    <ClInclude Include="GameComponent\Collider.h" />
+    <ClInclude Include="GameComponent\Transform.h" />
+    <ClInclude Include="Game\AnimObject.h" />
+    <ClInclude Include="Game\Arrow.h" />
+    <ClInclude Include="Game\Camera.h" />
+    <ClInclude Include="Game\CharacterBase\CharacterBase.h" />
+    <ClInclude Include="Game\Dijkstra\Dijkstra.h" />
+    <ClInclude Include="Game\DungeonMarker.h" />
+    <ClInclude Include="Game\Enemy\Enemy.h" />
+    <ClInclude Include="Game\Enemy\EnemyState\AvoidState.h" />
+    <ClInclude Include="Game\Enemy\EnemyState\EnemyHangWallState.h" />
+    <ClInclude Include="Game\Enemy\EnemyState\IntervalState.h" />
+    <ClInclude Include="Game\Enemy\EnemyState\ChaseState.h" />
+    <ClInclude Include="Game\Enemy\EnemyState\BattleIdleState.h" />
+    <ClInclude Include="Game\Enemy\EnemyState\DamageState.h" />
+    <ClInclude Include="Game\Enemy\EnemyState\DeathState.h" />
+    <ClInclude Include="Game\Enemy\EnemyState\EnemyAttackState.h" />
+    <ClInclude Include="Game\Enemy\EnemyState\SearchState.h" />
+    <ClInclude Include="Game\FireElemental\FireElemental.h" />
+    <ClInclude Include="Game\FireElemental\FireElementalState\FireElementalAttackState.h" />
+    <ClInclude Include="Game\FireElemental\FireElementalState\EnemyIdleState.h" />
+    <ClInclude Include="Game\FireElemental\FireElementalState\EnemyMoveState.h" />
+    <ClInclude Include="Game\FireElemental\FireElementalState\FireElementalDeathState.h" />
+    <ClInclude Include="Game\FireElemental\SlamGroundCollider.h" />
+    <ClInclude Include="Game\FireElemental\StoneAttack.h" />
+    <ClInclude Include="Game\GameManager\GameManager.h" />
+    <ClInclude Include="Game\GameManager\State\BossState.h" />
+    <ClInclude Include="Game\GameManager\State\Field1EndState.h" />
+    <ClInclude Include="Game\GameManager\State\Field1State.h" />
+    <ClInclude Include="Game\GameManager\State\GameClearState.h" />
+    <ClInclude Include="Game\GameManager\State\GameOverState.h" />
+    <ClInclude Include="Game\GameManager\State\GameTestState.h" />
+    <ClInclude Include="Game\GameManager\State\OPState.h" />
+    <ClInclude Include="Game\GameManager\State\TitleState.h" />
+    <ClInclude Include="Game\NonAnimObject.h" />
+    <ClInclude Include="Game\Player\Player.h" />
+    <ClInclude Include="Game\Player\State\ArrowAimState.h" />
+    <ClInclude Include="Game\Player\State\ClimeState.h" />
+    <ClInclude Include="Game\Player\State\StayState.h" />
+    <ClInclude Include="Game\Player\State\PlayerDamageState.h" />
+    <ClInclude Include="Game\Player\State\HangDropState.h" />
+    <ClInclude Include="Game\Player\State\HangWallState.h" />
+    <ClInclude Include="Game\Player\State\IdleState.h" />
+    <ClInclude Include="Game\Player\State\JumpState.h" />
+    <ClInclude Include="Game\Player\State\PlayerDeathState.h" />
+    <ClInclude Include="Game\Player\State\WireActionState.h" />
+    <ClInclude Include="Game\Player\State\WireAimState.h" />
+    <ClInclude Include="Game\Player\State\WireShotState.h" />
+    <ClInclude Include="Game\Rope\Rope.h" />
+    <ClInclude Include="Game\Rope\State\RopeIdleState.h" />
+    <ClInclude Include="Game\SkyBox.h" />
+    <ClInclude Include="Game\StaticObject.h" />
+    <ClInclude Include="Game\Treasure\Treasure.h" />
+    <ClInclude Include="Game\VariableParam.h" />
+    <ClInclude Include="Game\Wire.h" />
+    <ClInclude Include="GID.h" />
+    <ClInclude Include="Game\Geometry.h" />
+    <ClInclude Include="Game\GUI.h" />
+    <ClInclude Include="Game\Map.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SoundResource.h" />
+    <ClInclude Include="StarterAsset.h" />
+    <ClInclude Include="StateMachine\State.h" />
+    <ClInclude Include="StateMachine\StateAI.h" />
+    <ClInclude Include="StateMachine\StateMachine.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TaskSystem\CollisionTask.h" />
+    <ClInclude Include="TaskSystem\CollisionTaskManager.h" />
+    <ClInclude Include="TaskSystem\RenderTask.h" />
+    <ClInclude Include="TaskSystem\RenderTaskManager.h" />
+    <ClInclude Include="TaskSystem\Task.h" />
+    <ClInclude Include="TaskSystem\TaskInclude.h" />
+    <ClInclude Include="TaskSystem\TaskManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Base\Base.cpp" />
+    <ClCompile Include="Effect\Effect3D.cpp" />
+    <ClCompile Include="Effect\Effect2D.cpp" />
+    <ClCompile Include="Effect\EffectCollection.cpp" />
+    <ClCompile Include="GameComponent\Collider.cpp" />
+    <ClCompile Include="GameComponent\Transform.cpp" />
+    <ClCompile Include="Game\AnimObject.cpp" />
+    <ClCompile Include="Game\Arrow.cpp" />
+    <ClCompile Include="Game\Camera.cpp" />
+    <ClCompile Include="Game\CharacterBase\CharacterBase.cpp" />
+    <ClCompile Include="Game\Dijkstra\Dijkstra.cpp" />
+    <ClCompile Include="Game\DungeonMarker.cpp" />
+    <ClCompile Include="Game\Enemy\Enemy.cpp" />
+    <ClCompile Include="Game\Enemy\EnemyState\AvoidState.cpp" />
+    <ClCompile Include="Game\Enemy\EnemyState\EnemyHangWallState.cpp" />
+    <ClCompile Include="Game\Enemy\EnemyState\IntervalState.cpp" />
+    <ClCompile Include="Game\Enemy\EnemyState\ChaseState.cpp" />
+    <ClCompile Include="Game\Enemy\EnemyState\BattleIdleState.cpp" />
+    <ClCompile Include="Game\Enemy\EnemyState\DamageState.cpp" />
+    <ClCompile Include="Game\Enemy\EnemyState\DeathState.cpp" />
+    <ClCompile Include="Game\Enemy\EnemyState\EnemyAttackState.cpp" />
+    <ClCompile Include="Game\Enemy\EnemyState\SearchState.cpp" />
+    <ClCompile Include="Game\FireElemental\FireElemental.cpp" />
+    <ClCompile Include="Game\FireElemental\FireElementalState\EnemyIdleState.cpp" />
+    <ClCompile Include="Game\FireElemental\FireElementalState\EnemyMoveState.cpp" />
+    <ClCompile Include="Game\FireElemental\FireElementalState\FireElementalAttackState.cpp" />
+    <ClCompile Include="Game\FireElemental\FireElementalState\FireElementalDeathState.cpp" />
+    <ClCompile Include="Game\FireElemental\SlamGroundCollider.cpp" />
+    <ClCompile Include="Game\FireElemental\StoneAttack.cpp" />
+    <ClCompile Include="Game\GameManager\GameManager.cpp" />
+    <ClCompile Include="Game\GameManager\State\BossState.cpp" />
+    <ClCompile Include="Game\GameManager\State\Field1EndState.cpp" />
+    <ClCompile Include="Game\GameManager\State\Field1State.cpp" />
+    <ClCompile Include="Game\GameManager\State\GameClearState.cpp" />
+    <ClCompile Include="Game\GameManager\State\GameOverState.cpp" />
+    <ClCompile Include="Game\GameManager\State\GameTestState.cpp" />
+    <ClCompile Include="Game\GameManager\State\OPState.cpp" />
+    <ClCompile Include="Game\GameManager\State\TitleState.cpp" />
+    <ClCompile Include="Game\NonAnimObject.cpp" />
+    <ClCompile Include="Game\Geometry.cpp" />
+    <ClCompile Include="Game\GUI.cpp" />
+    <ClCompile Include="Game\Map.cpp" />
+    <ClCompile Include="Game\Player\Player.cpp" />
+    <ClCompile Include="Game\Player\State\ArrowAimState.cpp" />
+    <ClCompile Include="Game\Player\State\ClimeState.cpp" />
+    <ClCompile Include="Game\Player\State\HangDropState.cpp" />
+    <ClCompile Include="Game\Player\State\HangWallState.cpp" />
+    <ClCompile Include="Game\Player\State\IdleState.cpp" />
+    <ClCompile Include="Game\Player\State\JumpState.cpp" />
+    <ClCompile Include="Game\Player\State\StayState.cpp" />
+    <ClCompile Include="Game\Player\State\PlayerDamageState.cpp" />
+    <ClCompile Include="Game\Player\State\PlayerDeathState.cpp" />
+    <ClCompile Include="Game\Player\State\WireActionState.cpp" />
+    <ClCompile Include="Game\Player\State\WireAimState.cpp" />
+    <ClCompile Include="Game\Player\State\WireShotState.cpp" />
+    <ClCompile Include="Game\Rope\Rope.cpp" />
+    <ClCompile Include="Game\Rope\State\RopeIdleState.cpp" />
+    <ClCompile Include="Game\SkyBox.cpp" />
+    <ClCompile Include="Game\StaticObject.cpp" />
+    <ClCompile Include="Game\Treasure\Treasure.cpp" />
+    <ClCompile Include="Game\Wire.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="TaskSystem\CollisionTask.cpp" />
+    <ClCompile Include="TaskSystem\CollisionTaskManager.cpp" />
+    <ClCompile Include="TaskSystem\RenderTask.cpp" />
+    <ClCompile Include="TaskSystem\RenderTaskManager.cpp" />
+    <ClCompile Include="TaskSystem\Task.cpp" />
+    <ClCompile Include="TaskSystem\TaskManager.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FE2CE3B1-49BF-46A5-9DB1-9BD5B52FE1A0}</ProjectGuid>
+    <RootNamespace>GameProject</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)/../Game/</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)/../Game/</OutDir>
+    <IntDir>$(SolutionDir)$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)/../Game/</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)/../Game/</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)/../Game</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <IntDir>$(SolutionDir)$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)/../Game</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <IntDir>$(SolutionDir)$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)/../Game</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerWorkingDirectory>$(SolutionDir)/../Game</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../include;../GLLibrary</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../lib;../Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;GLFW.lib;glewd.lib;glpng.lib;GLLibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../include;../GLLibrary</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;GLFW.lib;glew.lib;glpng.lib;GLLibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../lib/x64;../Debug</AdditionalLibraryDirectories>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../include;../GLLibrary</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>../lib;../Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;GLFW.lib;glew.lib;glpng.lib;GLLibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../include;../GLLibrary</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;GLFW.lib;glew.lib;glpng.lib;GLLibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../lib/x64;../Release</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

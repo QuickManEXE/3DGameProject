@@ -1,32 +1,9 @@
-# Prerequisites
-*.d
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+.vs/
+Debug/
+Release/
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+/BaseProject/Game/GameProject.exe
+/BaseProject/Game/GameProject.exp
+/BaseProject/Game/GameProject.lib
+/BaseProject/Game/GameProject.pdb

@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TaskSystem\CollisionTask.h">
+      <Filter>TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskSystem\CollisionTaskManager.h">
+      <Filter>TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskSystem\Task.h">
+      <Filter>TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskSystem\TaskInclude.h">
+      <Filter>TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskSystem\TaskManager.h">
+      <Filter>TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\Base.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GUI.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Map.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="GID.h" />
+    <ClInclude Include="TaskSystem\RenderTask.h">
+      <Filter>TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskSystem\RenderTaskManager.h">
+      <Filter>TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\VariableParam.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine\State.h">
+      <Filter>StateManchine</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine\StateAI.h">
+      <Filter>StateManchine</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine\StateMachine.h">
+      <Filter>StateManchine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\State\IdleState.h">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Rope\Rope.h">
+      <Filter>Game\Rope</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Rope\State\RopeIdleState.h">
+      <Filter>Game\Rope\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\State\ClimeState.h">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\State\JumpState.h">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\State\HangWallState.h">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\State\HangDropState.h">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="StarterAsset.h" />
+    <ClInclude Include="Game\Geometry.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Enemy\Enemy.h">
+      <Filter>Game\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameComponent\Collider.h">
+      <Filter>GameComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="GameComponent\Transform.h">
+      <Filter>GameComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Dijkstra\Dijkstra.h">
+      <Filter>Game\Dijkstra</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Enemy\EnemyState\SearchState.h">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Enemy\EnemyState\EnemyAttackState.h">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Enemy\EnemyState\DamageState.h">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Enemy\EnemyState\DeathState.h">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Enemy\EnemyState\IntervalState.h">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Enemy\EnemyState\BattleIdleState.h">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SkyBox.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\State\WireActionState.h">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\State\WireAimState.h">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\State\WireShotState.h">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FireElemental\FireElemental.h">
+      <Filter>Game\FireElemental</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FireElemental\FireElementalState\EnemyIdleState.h">
+      <Filter>Game\FireElemental\FireElementalState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FireElemental\FireElementalState\EnemyMoveState.h">
+      <Filter>Game\FireElemental\FireElementalState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FireElemental\FireElementalState\FireElementalAttackState.h">
+      <Filter>Game\FireElemental\FireElementalState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Arrow.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Camera.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\State\ArrowAimState.h">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect\Effect3D.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Enemy\EnemyState\ChaseState.h">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Enemy\EnemyState\AvoidState.h">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FireElemental\FireElementalState\FireElementalDeathState.h">
+      <Filter>Game\FireElemental\FireElementalState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Treasure\Treasure.h">
+      <Filter>Game\Treasure</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\State\PlayerDamageState.h">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FireElemental\SlamGroundCollider.h">
+      <Filter>Game\FireElemental</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\State\PlayerDeathState.h">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\StaticObject.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\Player.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\State\StayState.h">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundResource.h" />
+    <ClInclude Include="Game\GameManager\GameManager.h">
+      <Filter>Game\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManager\State\TitleState.h">
+      <Filter>Game\GameManager\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManager\State\OPState.h">
+      <Filter>Game\GameManager\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManager\State\Field1State.h">
+      <Filter>Game\GameManager\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManager\State\BossState.h">
+      <Filter>Game\GameManager\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManager\State\GameClearState.h">
+      <Filter>Game\GameManager\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManager\State\GameOverState.h">
+      <Filter>Game\GameManager\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CharacterBase\CharacterBase.h">
+      <Filter>Game\CharacterBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManager\State\Field1EndState.h">
+      <Filter>Game\GameManager\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\FireElemental\StoneAttack.h">
+      <Filter>Game\FireElemental</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Wire.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Enemy\EnemyState\EnemyHangWallState.h">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect\Effect2D.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect\EffectCollection.h">
+      <Filter>Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManager\State\GameTestState.h">
+      <Filter>Game\GameManager\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DungeonMarker.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\AnimObject.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\NonAnimObject.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TaskSystem\CollisionTask.cpp">
+      <Filter>TaskSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskSystem\CollisionTaskManager.cpp">
+      <Filter>TaskSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskSystem\Task.cpp">
+      <Filter>TaskSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskSystem\TaskManager.cpp">
+      <Filter>TaskSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Base\Base.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GUI.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Map.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskSystem\RenderTaskManager.cpp">
+      <Filter>TaskSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskSystem\RenderTask.cpp">
+      <Filter>TaskSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\State\IdleState.cpp">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Rope\Rope.cpp">
+      <Filter>Game\Rope</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\State\ClimeState.cpp">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Rope\State\RopeIdleState.cpp">
+      <Filter>Game\Rope\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\State\JumpState.cpp">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Game\Player\Player.cpp">
+      <Filter>Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\State\HangWallState.cpp">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\State\HangDropState.cpp">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Geometry.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Enemy\Enemy.cpp">
+      <Filter>Game\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameComponent\Collider.cpp">
+      <Filter>GameComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="GameComponent\Transform.cpp">
+      <Filter>GameComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Dijkstra\Dijkstra.cpp">
+      <Filter>Game\Dijkstra</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Enemy\EnemyState\SearchState.cpp">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Enemy\EnemyState\EnemyAttackState.cpp">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Enemy\EnemyState\DamageState.cpp">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Enemy\EnemyState\DeathState.cpp">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Enemy\EnemyState\IntervalState.cpp">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Enemy\EnemyState\BattleIdleState.cpp">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\SkyBox.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\State\WireActionState.cpp">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\State\WireAimState.cpp">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\State\WireShotState.cpp">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\FireElemental\FireElemental.cpp">
+      <Filter>Game\FireElemental</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\FireElemental\FireElementalState\EnemyIdleState.cpp">
+      <Filter>Game\FireElemental\FireElementalState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\FireElemental\FireElementalState\EnemyMoveState.cpp">
+      <Filter>Game\FireElemental\FireElementalState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\FireElemental\FireElementalState\FireElementalAttackState.cpp">
+      <Filter>Game\FireElemental\FireElementalState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Arrow.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Camera.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\State\ArrowAimState.cpp">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect\Effect3D.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Enemy\EnemyState\ChaseState.cpp">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Enemy\EnemyState\AvoidState.cpp">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\FireElemental\FireElementalState\FireElementalDeathState.cpp">
+      <Filter>Game\FireElemental\FireElementalState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Treasure\Treasure.cpp">
+      <Filter>Game\Treasure</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\State\PlayerDamageState.cpp">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\FireElemental\SlamGroundCollider.cpp">
+      <Filter>Game\FireElemental</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\State\PlayerDeathState.cpp">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Player\State\StayState.cpp">
+      <Filter>Game\Player\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\GameManager.cpp">
+      <Filter>Game\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\State\TitleState.cpp">
+      <Filter>Game\GameManager\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\State\OPState.cpp">
+      <Filter>Game\GameManager\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\State\Field1State.cpp">
+      <Filter>Game\GameManager\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\State\BossState.cpp">
+      <Filter>Game\GameManager\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\State\GameClearState.cpp">
+      <Filter>Game\GameManager\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\State\GameOverState.cpp">
+      <Filter>Game\GameManager\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CharacterBase\CharacterBase.cpp">
+      <Filter>Game\CharacterBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\StaticObject.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\State\Field1EndState.cpp">
+      <Filter>Game\GameManager\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\FireElemental\StoneAttack.cpp">
+      <Filter>Game\FireElemental</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Wire.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Enemy\EnemyState\EnemyHangWallState.cpp">
+      <Filter>Game\Enemy\EnemyState</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect\Effect2D.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect\EffectCollection.cpp">
+      <Filter>Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\State\GameTestState.cpp">
+      <Filter>Game\GameManager\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\DungeonMarker.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\AnimObject.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\NonAnimObject.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Base">
+      <UniqueIdentifier>{fe2e8491-b151-45f4-bb99-2875ca771ad7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TaskSystem">
+      <UniqueIdentifier>{4b29c054-03d4-414d-bd62-794f2d7d9a26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{e4e328cf-563d-4bde-b24d-8022739647ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StateManchine">
+      <UniqueIdentifier>{96247cfb-b459-42f2-9aa4-4627a78c6164}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Player">
+      <UniqueIdentifier>{eb2c54ac-b102-428c-84cd-94e475e52418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Player\PlayerState">
+      <UniqueIdentifier>{b095c8da-1245-4e66-89be-2687f6ffe7e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Rope">
+      <UniqueIdentifier>{e7728fc9-c934-4ae9-8f07-81576b13a8b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Rope\State">
+      <UniqueIdentifier>{38ec798e-9ddd-45bf-85a0-072582b3bba3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameComponent">
+      <UniqueIdentifier>{783a6282-8d3a-4adf-870d-e06d0e135640}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Enemy">
+      <UniqueIdentifier>{07344426-4259-47c7-9b56-d237fd93fe86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Enemy\EnemyState">
+      <UniqueIdentifier>{acd3352d-1e53-4cab-bd00-3c4d1f0755f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Dijkstra">
+      <UniqueIdentifier>{55b9d8cd-8bf1-42fb-88ea-df365cf3d1a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\FireElemental">
+      <UniqueIdentifier>{c268e915-5251-41b2-8a1b-f7847ab9a3fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\FireElemental\FireElementalState">
+      <UniqueIdentifier>{5d162cff-b4ae-440d-877e-81b781be1baf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effect">
+      <UniqueIdentifier>{5dde60ad-bae9-401b-b5f3-813782231d53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Treasure">
+      <UniqueIdentifier>{8ee23ae8-8a16-44e5-9ef0-1c74f595dcdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameManager">
+      <UniqueIdentifier>{d8663f3e-58d6-4c84-b34a-ff61013b6fb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameManager\State">
+      <UniqueIdentifier>{f1207121-a92f-47e9-a326-493ba5620472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\CharacterBase">
+      <UniqueIdentifier>{2612a190-cda2-410e-8c85-c21c11db883c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
