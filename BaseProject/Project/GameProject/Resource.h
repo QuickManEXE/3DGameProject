@@ -61,7 +61,7 @@ namespace Resource {
 		ADD_RESOURCE("TreasureMap", CModel::CreateModel("TreasureMap/TreasureMap.obj"));
 		
 		
-		ADD_RESOURCE("Mountain", CModel::CreateModel("Field/Mountain/mountain.obj", 100, 10, 100));
+		ADD_RESOURCE("Mountain", CModel::CreateModel("Field/Mountain/mountain2.obj", 100, 10, 100));
 		ADD_RESOURCE("OpeningMountain", CModel::CreateModel("Field/Mountain/OpeningMountain.obj", 100, 10, 100));
 		ADD_RESOURCE("Cave", CModel::CreateModel("Field/Mountain/Cave.obj", 100, 10, 100));
 

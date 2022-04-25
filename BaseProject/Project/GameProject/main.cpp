@@ -19,12 +19,14 @@ void MainLoop(void) {
 	
 	CollisionTaskManager::GetInstance()->CollisionCheckAll();
 	
+	if (GameManager::GetInstance()->m_StateAI.IsCurrentState(GameManager::GameManagerState::TitleState)) {
+		RenderTaskManager::GetInstance()->RenderAll();
+	}
+	else {
 
-	//RenderTaskManager::GetInstance()->RenderAll();
-	
-	
-	CShadow::GetInstance()->Render([]() 
-		{RenderTaskManager::GetInstance()->RenderAll();},true);
+		CShadow::GetInstance()->Render([]()
+			{RenderTaskManager::GetInstance()->RenderAll(); }, true); 
+	}
 		
 	//CShadow::GetInstance()->DrawDepthTex(0, 0, 200, 200);
 	
