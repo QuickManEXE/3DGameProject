@@ -29,12 +29,15 @@ StoneAttack::~StoneAttack()
 
 void StoneAttack::Update()
 {
+	//‘Å‚¿o‚µƒtƒ‰ƒO‚ªON‚È‚ç
 	if (m_shot) {
 
 		t += DELTA;
 
-
+	
 		m_Transform.position = m_Transform.position * (1 - t) + m_target_point * t;
+		m_Transform.rotation += Utility::RandVec3D(0,5.0f)*DELTA;
+		
 
 		if (t >= 1) {
 

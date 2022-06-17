@@ -240,6 +240,7 @@ void Player::HangCheck(CollisionTask* _task)
 			//プレイヤー右側の線と判定
 			if (b->GetModel().CollisionRay(&cross2, &normal2, m_LineCol[1].m_start, m_LineCol[1].m_end)) {
 
+				//移動ベクトルを消す
 				m_Transform.m_pos_vec.y = 0;
 
 				m_ClimePoint = (cross1 + cross2) / 2.0f;

@@ -4,6 +4,8 @@
 #include"../../Camera.h"
 #include"../../FireElemental/FireElemental.h"
 
+
+//ボスのスクリプト
 class BossState : public State<GameManager> {
 private:
 	FireElemental* mp_fire;

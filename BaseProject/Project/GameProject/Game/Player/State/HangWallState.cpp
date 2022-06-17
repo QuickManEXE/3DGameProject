@@ -7,8 +7,10 @@ HangWallState::HangWallState(Player* owner) : State(owner)
 
 void HangWallState::Enter()
 {
+	//アニメーションの変更
 	owner->GetModel()->ChangeAnimation(Player::PlayerAnimJam::HangWall, false);
 
+	//アニメーションの速度を変える
 	owner->GetModel()->SetAnimationSpeed(3.0f);
 
 	owner->m_Transform.m_pos_vec = CVector3D::zero;
