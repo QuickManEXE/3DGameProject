@@ -2,7 +2,7 @@
 #include"../Base/Base.h"
 #include"DungeonMarker.h"
 
-#define TILE_SIZE 4.0f
+#define TILE_SIZE 6.0f
 
 class Map : public Base{
 private:
@@ -19,4 +19,7 @@ public:
 	Map();
 	void Render();
 	void CollisionCheck(CollisionTask* _task);
+	DungeonMarker::DungeonData GetDungeonData() {
+		return m_dungeon_data;
+	}
 };

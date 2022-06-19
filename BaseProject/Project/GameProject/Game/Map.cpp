@@ -14,12 +14,14 @@ Map::Map() : Base(UpdatePriority::eUp_Field, "Map")
 	m_wall = COPY_RESOURCE("B222", CModelObj);
 
 	m_ground = COPY_RESOURCE("DPlate", CModelObj);
+
+	m_ground.SetScale(MAP_WIDTH * TILE_SIZE, MAP_WIDTH * TILE_SIZE, MAP_HEIGHT * TILE_SIZE);
 }
 
 void Map::Render()
 {
 	m_ground.SetPos(CVector3D(MAP_WIDTH /2 * TILE_SIZE, -TILE_SIZE/2, MAP_HEIGHT /2 * TILE_SIZE));
-	m_ground.SetScale(CVector3D::one*50.0f);
+	//m_ground.SetScale(CVector3D::one*50.0f);
 	m_ground.Render();
 
 	for (int h = 0; h < m_dungeon_data.m_tile.size(); h++) {
@@ -32,7 +34,7 @@ void Map::Render()
 			{
 			case (int)DungeonMarker::TileType::outside_wall_id:
 				m_wall.SetPos(CVector3D(w * TILE_SIZE, 0, h * TILE_SIZE));
-				m_wall.SetScale(CVector3D::one * 2.0f);
+				m_wall.SetScale(CVector3D(TILE_SIZE / 2.0f, 10 ,TILE_SIZE / 2.0f));
 				m_wall.Render();
 			default:
 				break;

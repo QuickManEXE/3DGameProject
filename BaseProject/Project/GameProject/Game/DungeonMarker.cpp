@@ -278,6 +278,43 @@ bool DungeonMarker::IsCreateRoom(TileData* _t_data, const RoomRect& _r_data)
 	return is_create;
 }
 
+bool DungeonMarker::GetRandomDungeonPos(DungeonData* _data, CVector3D* _p_pos, TileType _tile_type)
+{
+	if (!_data)return false;
+	if (!_p_pos)return false;
+
+	TileData* t_data = &(_data->m_tile);
+
+	//全体の大きさを確認
+	int dungeon_height = t_data->size();
+	int dungeon_width = (*t_data)[0].size();
+
+	//今回の条件に合うものを格納する配列
+	std::vector<CVector3D> vectors;
+
+	for (int z = 0; z < dungeon_height;z++) {
+
+		for (int x= 0; x < dungeon_width; x++) {
+
+			auto id = (*t_data)[z][x];
+			if (id == (int)_tile_type) {
+
+				vectors.push_back(CVector3D(x,0,z));
+
+			}
+		}
+	}
+
+	//条件に合うものがなかったなら
+	if (vectors.size() <= 0) return false;
+
+	int index = Utility::Rand(0, (int)vectors.size());
+	CVector3D pos = vectors[index];
+	(*_p_pos) = pos;
+
+	return true;
+}
+
 void DungeonMarker::DrawRoomIndex()
 {
 	printf("\n\n\n");

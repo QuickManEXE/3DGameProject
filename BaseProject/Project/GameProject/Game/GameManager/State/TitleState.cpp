@@ -6,7 +6,7 @@
 #include"../../AnimObject.h"
 #include"../../NonAnimObject.h"
 
-
+//タイトルのステート
 TitleState::TitleState(GameManager* owner) : State(owner)
 {
 
@@ -56,11 +56,6 @@ void TitleState::Execute()
 	UpdateCamMove();
 
 	UpdateTitle();
-
-	/*
-	printf("%f,%f,%f %f,%f,%f\n", cam_transform.position.x, cam_transform.position.y, cam_transform.position.z,
-		cam_transform.rotation.x, cam_transform.rotation.y, cam_transform.rotation.z);
-		*/
 }
 
 void TitleState::Exit()
@@ -124,7 +119,7 @@ void TitleState::UpdateTitle()
 		if (m_t >= 1.0f) {
 			SOUND(SoundResource::BGM_Title.c_str())->Stop();
 
-			owner->m_StateAI.ChangeState(GameManager::GameManagerState::OpeningState);
+			owner->m_StateAI.ChangeState(GameManager::GameManagerState::GameTestState);
 		}
 	default:
 		break;

@@ -46,6 +46,10 @@ public:
 public:
 	//ダンジョンの生成
 	static void CreateDungeon(DungeonData* _data,const CVector2D& _dungeon_size, const CVector2D& _first_room_size,const CVector2D& _first_room_pos, int _max_room_num);
+
+	//条件に沿ったポイントを返します
+	static bool GetRandomDungeonPos(DungeonData* _data,CVector3D* _p_pos, TileType _tile_type);
+
 private:
 	//ダンジョンの初期化
 	static void DungeonInit(DungeonData* data, int width, int height, TileType init_tile);
@@ -65,6 +69,7 @@ private:
 
 	static bool IsCreateRoom(TileData* _t_data, const RoomRect& _r_data);
 
+	
 	//ダンジョンの部屋の確認
 	static void DrawRoomIndex();
 
