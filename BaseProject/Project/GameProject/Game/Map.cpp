@@ -5,7 +5,7 @@
 
 Map::Map() : Base(UpdatePriority::eUp_Field, "Map")
 {
-	DungeonMarker::CreateDungeon(&m_dungeon_data, CVector2D(MAP_WIDTH, MAP_HEIGHT), CVector2D(4, 4),CVector2D(MAP_WIDTH/2,MAP_HEIGHT/2), 10);
+	
 
 	m_render.RegistRender(this, (RenderFunc)&Map::Render, RenderPriority::eRd_Field, "Map");
 
@@ -165,9 +165,27 @@ void Map::CollisionCheck(CollisionTask* _task)
 
 }
 
+void Map::CreateDungeon(const CVector2D& _dungeon_size, const CVector2D& _first_room_size, const CVector2D& _first_room_pos, int _max_room_num)
+{
+	DungeonMarker::CreateDungeon(&m_dungeon_data, _dungeon_size,  _first_room_size, _first_room_pos,_max_room_num);
+}
 
+DungeonMarker::TileType Map::GetTip(const CVector3D& pos, int* ix, int* iy)
+{
 
+	//列を計算
+	int x = pos.x / TILE_SIZE;
+	//列の制限
+	if (x < 0) x = 0;
+	if (x > MAP_WIDTH - 1) x = MAP_WIDTH - 1;
+	if (ix) *ix = x;
+	//行を計算
+	int y = pos.z / TILE_SIZE;
+	//行の制限
+	if (y < 0) y = 0;
+	if (y > MAP_HEIGHT - 1) y = MAP_HEIGHT - 1;
+	if (iy) *iy = y;
+	//チップデータを返却
+	return DungeonMarker::TileType(m_dungeon_data.m_tile[y][x]);
 
-
-
-
+}

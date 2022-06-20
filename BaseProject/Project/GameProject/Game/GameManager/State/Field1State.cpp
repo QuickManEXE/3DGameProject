@@ -56,7 +56,7 @@ void Field1State::Execute()
 
 	if (Player::GetInstance()->m_Transform.position.y <= -100) {
 
-		GameManager::GetInstance()->m_StateAI.ChangeState(GameManager::GameManagerState::GameOverState);
+		GameManager::Instance().m_StateAI.ChangeState(GameManager::GameManagerState::GameOverState);
 
 
 	}

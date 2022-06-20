@@ -34,22 +34,26 @@ void DungeonMarker::DungeonInit(DungeonData* _data,int _width,int _height,TileTy
 
 void DungeonMarker::CreateDungeon(DungeonData* _data, const CVector2D& _dungeon_size, const CVector2D& _first_room_size, const CVector2D& _first_room_pos, int _max_room_num)
 {
-	srand(time(NULL));
-	srand(1);
+	DungeonData data;
+
+	srand(unsigned(time(NULL)));
+	//srand(1);
 
 	if (!_data) return;
 
-	DungeonInit(_data,_dungeon_size.x, _dungeon_size.y, TileType::outside_wall_id);
+	DungeonInit(&data,_dungeon_size.x, _dungeon_size.y, TileType::outside_wall_id);
 
 	DrawRoomIndex();
 
-	CreateFirstRoom(_data,_first_room_size,_first_room_pos);
+	CreateFirstRoom(&data,_first_room_size,_first_room_pos);
 
-	CreateNextRoom(_data,_max_room_num);
+	CreateNextRoom(&data,_max_room_num);
 
 	printf("\nÉ_ÉìÉWÉáÉìÇÃê∂ê¨Ç™èIÇÌÇËÇ‹ÇµÇΩ\n");
 
-	DrawDungeon(_data);
+	DrawDungeon(&data);
+
+	(*_data) = data;
 }
 
 void DungeonMarker::CreateFirstRoom(DungeonData* _data, const CVector2D& _first_room_size, const CVector2D& _first_room_pos)

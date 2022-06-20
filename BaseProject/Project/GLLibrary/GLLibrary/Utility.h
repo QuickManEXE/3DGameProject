@@ -131,6 +131,7 @@ namespace Utility {
 	void DrawViewPoint(CVector3D view_point,CVector3D view_rot,float view_ang,float view_length);
 	//3Dベクトルをランダムで返す
 	const CVector3D& RandVec3D(float min, float max);
+
 	//当たり判定
 	/*
 	//円同士の判定BからAへの力を返す

@@ -1,18 +1,17 @@
 #pragma once
 #include"../../Base/Base.h"
+#include"../../Singleton/Singleton.h"
 #include"../../StateMachine/StateAI.h"
 #include"../StaticObject.h"
 
-//ゲームイベントを起こすマネージャー
-class GameManager : public Base {
-private:
-	GameManager();
-	static GameManager* mp_Instance;
-public:
-	static GameManager* GetInstance();
-	static void CreateInstance();
-public:
 
+//ゲームイベントを起こすマネージャー
+class GameManager : public Base,public Singleton<GameManager>{
+public:
+	friend class Singleton<GameManager>;
+protected:
+	GameManager();
+public:
 	enum class GameManagerState {
 		TitleState,
 		OpeningState,
@@ -22,6 +21,7 @@ public:
 		GameClearState,
 		GameOverState,
 		GameTestState,//デバッグ用
+		BeginGameState,
 	};
 
 	StateAI<GameManager, GameManagerState> m_StateAI;
@@ -34,6 +34,12 @@ public:
 	int m_EnemyCount;
 
 	StaticObject* m_Rock;
+
+	//現在到達しているダンジョンの階層の数値
+	int m_CurrentDungeonNum;
+	//ゲームクリアのダンジョンの階層の数値
+	int m_ClearDungeonNum;
+
 public:
 	void Update();
 	void Render();

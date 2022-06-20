@@ -223,6 +223,21 @@
     <ClInclude Include="Game\NonAnimObject.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Object\Goal.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManager\State\BeginGameState.h">
+      <Filter>Game\GameManager\State</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceLocator\ServiceLocator.h">
+      <Filter>ServiceLocator</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceLocator\ServiceInstaller.h">
+      <Filter>ServiceLocator</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton\Singleton.h">
+      <Filter>Singleton</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TaskSystem\CollisionTask.cpp">
@@ -427,6 +442,12 @@
     <ClCompile Include="Game\NonAnimObject.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Object\Goal.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\State\BeginGameState.cpp">
+      <Filter>Game\GameManager\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Base">
@@ -485,6 +506,15 @@
     </Filter>
     <Filter Include="Game\CharacterBase">
       <UniqueIdentifier>{2612a190-cda2-410e-8c85-c21c11db883c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object">
+      <UniqueIdentifier>{a3c8cba0-fdd9-4f19-88e3-c2f92728cc8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ServiceLocator">
+      <UniqueIdentifier>{f91c9d8e-c800-4a81-808d-b7c2eb5ae061}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Singleton">
+      <UniqueIdentifier>{279ccb41-abc3-4437-90c6-a776bb2dfc33}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

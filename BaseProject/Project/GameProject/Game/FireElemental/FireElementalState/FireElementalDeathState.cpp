@@ -52,7 +52,7 @@ void FireElementalDeathState::Execute()
 		else {
 			
 			Camera::GetInstance()->SetCamera(nullptr);
-			GameManager::GetInstance()->m_StateAI.ChangeState(GameManager::GameManagerState::GameClearState);
+			GameManager::Instance().m_StateAI.ChangeState(GameManager::GameManagerState::GameClearState);
 
 
 		}

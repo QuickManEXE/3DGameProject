@@ -20,7 +20,7 @@ void PlayerDeathState::Execute()
 
 	if (m_time <= 0) {
 
-		GameManager::GetInstance()->m_StateAI.ChangeState(GameManager::GameManagerState::GameOverState);
+		GameManager::Instance().m_StateAI.ChangeState(GameManager::GameManagerState::GameOverState);
 
 	}
 

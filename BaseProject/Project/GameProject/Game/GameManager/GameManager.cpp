@@ -7,8 +7,9 @@
 #include"State/GameClearState.h"
 #include"State/GameOverState.h"
 #include"State/GameTestState.h"
+#include"State/BeginGameState.h"
 
-GameManager* GameManager::mp_Instance = nullptr;
+//GameManager* GameManager::mp_Instance = nullptr;
 
 GameManager::GameManager() : Base(UpdatePriority::eUp_Manager,"GameManager")
 {
@@ -29,6 +30,7 @@ GameManager::GameManager() : Base(UpdatePriority::eUp_Manager,"GameManager")
 	m_StateAI.state_vector.push_back(new GameClearState(this));
 	m_StateAI.state_vector.push_back(new GameOverState(this));
 	m_StateAI.state_vector.push_back(new GameTestState(this));
+	m_StateAI.state_vector.push_back(new BeginGameState(this));
 
 	m_StateAI.stateMachine = new StateMachine<GameManager>;
 
@@ -36,19 +38,19 @@ GameManager::GameManager() : Base(UpdatePriority::eUp_Manager,"GameManager")
 
 }
 
-GameManager* GameManager::GetInstance()
-{
-	if (!mp_Instance) {
-		CreateInstance();
-		return mp_Instance;
-	}
-	else return mp_Instance;
-}
-
-void GameManager::CreateInstance()
-{
-	mp_Instance = new GameManager();
-}
+//GameManager* GameManager::GetInstance()
+//{
+//	if (!mp_Instance) {
+//		CreateInstance();
+//		return mp_Instance;
+//	}
+//	else return mp_Instance;
+//}
+//
+//void GameManager::CreateInstance()
+//{
+//	mp_Instance = new GameManager();
+//}
 
 void GameManager::Update()
 {

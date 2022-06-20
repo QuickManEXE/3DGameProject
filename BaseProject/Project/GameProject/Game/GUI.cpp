@@ -1,5 +1,8 @@
 #include "GUI.h"
 #include"Player/Player.h"
+#include"Map.h"
+#include"GameManager\GameManager.h"
+#include"Object\Goal.h"
 
 float GUI::m_time_ang;
 
@@ -30,6 +33,31 @@ GUI::GUI() :Base(UpdatePriority::eUp_HUD, "UI"), m_text("ÇµÇÂÇ©Ç´Ç§ÇΩÇ∞Åiñ≥óøî≈Å
 	m_gui = COPY_RESOURCE("GUI", CImage);
 	
 	m_now_hp = 100;
+}
+
+void GUI::Update()
+{
+	UpdateMiniMap(Map::Instance().GetDungeonData());
+}
+
+void GUI::Draw()
+{
+
+	DrawHP();
+	DrawIcon();
+	DrawAimTarget();
+	DrawAimTarget2();
+	DrawMiniMap(m_DungeonData_For_MiniMap);
+	DrawGameInfo();
+
+	CVector2D hook_pos(16 + 32, SCREEN_HEIGHT - 200);
+
+	for (int i = 0; i < Player::GetInstance()->m_HookNum; i++) {
+		m_hook_icon.SetPos(hook_pos + CVector2D(0, 64 * i));
+		m_hook_icon.Draw();
+	}
+
+	DrawDubugInfo();
 }
 
 void GUI::DrawCircle(const CVector2D& pos, const float size, const float ang, const CVector4D& color)
@@ -180,27 +208,92 @@ void GUI::DrawIcon()
 	m_gui.Draw();
 }
 
-
-
-void GUI::Update()
-{	
-	
-}
-
-void GUI::Draw()
+void GUI::InitMiniMap(DungeonMarker::DungeonData _DungeonData_For_MiniMap)
 {
+	m_DungeonData_For_MiniMap = _DungeonData_For_MiniMap;
 
-	DrawHP();
-	DrawIcon();
-	DrawAimTarget();
-	DrawAimTarget2();
-	
-	CVector2D hook_pos(16+32, SCREEN_HEIGHT - 200);
-		
-	for (int i = 0; i < Player::GetInstance()->m_HookNum ; i++) {
-		m_hook_icon.SetPos(hook_pos + CVector2D(0,64*i));
-		m_hook_icon.Draw();
+	int dungeon_hegiht = m_DungeonData_For_MiniMap.m_tile.size();
+	int dungeon_width = m_DungeonData_For_MiniMap.m_tile[0].size();
+
+	for (int i=0; i < dungeon_hegiht; i++ ) {
+
+		for (int j=0; j < dungeon_width; j++) {
+
+			m_DungeonData_For_MiniMap.m_tile[i][j] = -1;
+		}
 	}
 
-	DrawDubugInfo();
+}
+
+void GUI::DrawMiniMap(DungeonMarker::DungeonData _DungeonData_For_MiniMap)
+{
+	int size = 6;
+	CVector2D p(1000, 100);
+	for (int i = 0; i < MAP_HEIGHT; i++) {
+		for (int j = 0; j < MAP_WIDTH; j++) {
+			if (_DungeonData_For_MiniMap.m_tile[i][j] <= (int)DungeonMarker::TileType::inside_wall_id) {
+				/*m_gui.SetRect(0, 401, 20, 421);
+				m_gui.SetSize(size, size);
+				m_gui.SetPos(p + CVector2D(size * j, size * i));
+				m_gui.Draw();*/
+				CVector2D pos(p + CVector2D(size * j, size * i));
+				CVector2D t_size(size, size);
+				Utility::DrawQuad(pos, t_size, CColorRGBA(1, 0, 0, 1));
+			}
+		}
+	}
+
+
+	int ix, iy;
+	Map::Instance().GetTip(Player::GetInstance()->m_Transform.position, &ix, &iy);
+	CVector2D pos(p + CVector2D(size * ix, size * iy));
+	CVector2D t_size(size, size);
+	Utility::DrawQuad(pos, t_size, CColorRGBA(1, 1, 0, 1));
+	/*m_gui.SetRect(20, 401, 40, 421);
+	m_gui.SetSize(size, size);
+	m_gui.SetPos(p + CVector2D(size * ix, size * iy));
+	m_gui.Draw();*/
+
+	
+	Map::Instance().GetTip(Goal::Instance().m_Transform.position, &ix, &iy);
+	if (_DungeonData_For_MiniMap.m_tile[iy][ix] != -1) {
+		pos = (p + CVector2D(size * ix, size * iy));
+		Utility::DrawQuad(pos, t_size, CColorRGBA(0, 0, 1, 1));
+	}
+	
+	/*m_gui.SetRect(20, 401, 40, 421);
+	m_gui.SetSize(size, size);
+	m_gui.SetPos(p + CVector2D(size * ix, size * iy));
+	m_gui.Draw();*/
+
+}
+
+void GUI::UpdateMiniMap(DungeonMarker::DungeonData _DungeonData_For_MiniMap)
+{
+	Player::GetInstance()->m_Transform.position;
+	int ix, iy;
+	Map::Instance().GetTip(Player::GetInstance()->m_Transform.position, &ix, &iy);
+
+	int dungeon_hegiht = m_DungeonData_For_MiniMap.m_tile.size();
+	int dungeon_width = m_DungeonData_For_MiniMap.m_tile[0].size();
+
+	CRect update_rect(max(0, ix - 2), max(0, iy - 2), min(dungeon_width, ix + 2), min(dungeon_hegiht, iy + 2));
+
+	for (int i = update_rect.m_top ; i < update_rect.m_bottom; i++) {
+
+		for (int j = update_rect.m_left; j < update_rect.m_right; j++) {
+
+			m_DungeonData_For_MiniMap.m_tile[i][j] = _DungeonData_For_MiniMap.m_tile[i][j];
+		}
+	}
+
+}
+
+void GUI::DrawGameInfo() {
+
+#ifdef _DEBUG
+
+	m_text.Draw(1000, 20, 1, 0, 1, "äK:%d/%d", GameManager::Instance().m_CurrentDungeonNum,GameManager::Instance().m_ClearDungeonNum);
+	
+#endif // _DEBUG
 }

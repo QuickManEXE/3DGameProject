@@ -19,14 +19,16 @@ void MainLoop(void) {
 	
 	CollisionTaskManager::GetInstance()->CollisionCheckAll();
 	
-	if (GameManager::GetInstance()->m_StateAI.IsCurrentState(GameManager::GameManagerState::TitleState)) {
+	RenderTaskManager::GetInstance()->RenderAll();
+
+	/*if (GameManager::Instance().m_StateAI.IsCurrentState(GameManager::GameManagerState::TitleState)) {
 		RenderTaskManager::GetInstance()->RenderAll();
 	}
 	else {
 
 		CShadow::GetInstance()->Render([]()
 			{RenderTaskManager::GetInstance()->RenderAll(); }, true); 
-	}
+	}*/
 		
 	//CShadow::GetInstance()->DrawDepthTex(0, 0, 200, 200);
 	
@@ -100,7 +102,7 @@ void Init(void)
 	Resource::LoadResource();
 	SoundResource::LoadResource();
 
-	GameManager::CreateInstance();
+	GameManager::Build();
 }
 
 

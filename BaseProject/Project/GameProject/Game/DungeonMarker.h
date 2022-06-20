@@ -1,9 +1,6 @@
 #pragma once
 #include"../Base/Base.h"
 
-#define MAP_WIDTH  25
-#define MAP_HEIGHT 25
-
 //ダンジョン生成クラス
 class DungeonMarker {
 public:

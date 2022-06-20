@@ -31,9 +31,9 @@ void IdleState::Execute()
 
 	//もし地面に接していないのが続けば（ベクトルの大きさが一定となればジャンプする)
 	//走っているなら
-	if (is_run) {
+	/*if (is_run) {
 		if(owner->m_IsJump)owner->m_StateAI.ChangeState(PlayerState::JumpState);
-	}
+	}*/
 
 	//フックモード切り替え
 	if (CInput::GetState(0, CInput::ePush, CInput::eButton3))

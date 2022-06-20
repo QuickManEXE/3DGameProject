@@ -1,8 +1,11 @@
 #pragma once
 #include"../Base/Base.h"
+#include"../Singleton/Singleton.h"
+#include"Map.h"
 
-class GUI :public Base
+class GUI :public Base,public Singleton<GUI>
 {
+	friend class Singleton<GUI>;
 private:
 	CImage m_target_icon;
 
@@ -23,6 +26,9 @@ private:
 	CImage m_gui;
 
 	float m_now_hp;
+
+	//ミニマップ用のダンジョンのデータ　プレイヤーの半径がわかるようになっていく
+	DungeonMarker::DungeonData m_DungeonData_For_MiniMap;
 public:
 	static float m_time_ang;
 	GUI();
@@ -34,4 +40,8 @@ public:
 	void DrawAimTarget2();
 	void DrawHP();
 	void DrawIcon();
+	void InitMiniMap(DungeonMarker::DungeonData _DungeonData_For_MiniMap); //ミニマップ初期化
+	void DrawMiniMap(DungeonMarker::DungeonData _DungeonData_For_MiniMap);
+	void UpdateMiniMap(DungeonMarker::DungeonData _DungeonData_For_MiniMap);
+	void DrawGameInfo();
 };

@@ -21,7 +21,7 @@ void DeathState::Enter()
 
 	owner->m_ArrowVector.clear();
 
-	GameManager::GetInstance()->m_EnemyCount--;
+	GameManager::Instance().m_EnemyCount--;
 }
 
 void DeathState::Execute()

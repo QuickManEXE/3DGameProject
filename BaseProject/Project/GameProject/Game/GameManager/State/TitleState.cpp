@@ -44,6 +44,7 @@ void TitleState::Enter()
 	new Effect2D("Transition2", CVector2D::zero, CVector2D::zero, CVector2D::zero, 0.0f, 0.0f,
 		CRect(CVector2D::zero, CVector2D(SCREEN_WIDTH, SCREEN_HEIGHT)),0.0f, 1.0f, -1.0f, 1.0f, 1.0f);
 
+
 	m_title_state = 0;
 
 	m_t = 0;

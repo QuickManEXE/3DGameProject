@@ -8,6 +8,7 @@
 class WireRope;
 
 enum class PlayerState {
+
 	StayState,//‘€ì•s‰Â”\ó‘Ô
 
 	IdleState,//’Êíó‘Ô
