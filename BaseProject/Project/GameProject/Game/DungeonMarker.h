@@ -30,13 +30,27 @@ public:
 	//部屋の種類格納
 	typedef std::vector<RoomRect> RoomIndex;
 	static RoomIndex m_room_index;
+	//部屋の入口のデータ
+	struct EntranceData {
+		int parent_room_num;//親の部屋の番号
+		CVector3D position;//座標
+		DirectionType dir;//扉の向き
+		EntranceData(int _parent_room_num, const CVector3D& _position, DirectionType _dir) {
+			parent_room_num = _parent_room_num;
+			position = _position;
+			dir = _dir;
+		}
+	};
+	typedef std::vector<EntranceData> EntranceDatas;
 	
 	//ダンジョンの総合データ
 	struct DungeonData {
 		TileData m_tile;//地形のデータ
 		RoomData m_room;//部屋の情報
+		EntranceDatas m_entrances;//入口の情報
 		DungeonData() {
 			m_room.reserve(100);//あらかじめ100個容量を予約しておく
+			m_entrances.reserve(100);
 		}
 	};
 
@@ -47,6 +61,10 @@ public:
 	//条件に沿ったポイントを返します
 	static bool GetRandomDungeonPos(DungeonData* _data,CVector3D* _p_pos, TileType _tile_type);
 
+	//四角のマスの数を返します
+	static int GetRectGridNum(const CRect& _rect);
+
+	static std::vector<CVector3D> GetRoomPosition(const CRect& _rect);
 private:
 	//ダンジョンの初期化
 	static void DungeonInit(DungeonData* data, int width, int height, TileType init_tile);

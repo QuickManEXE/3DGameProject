@@ -5,8 +5,11 @@ DungeonMarker::RoomIndex DungeonMarker::m_room_index
 {
 	{CVector2D(0,0),CVector2D(2,4)},
 	{CVector2D(0,0),CVector2D(2,2)},
-	{CVector2D(0,0),CVector2D(4,4)},
-	{CVector2D(0,0),CVector2D(2,6)},
+	{CVector2D(0,0),CVector2D(6,6)},
+	{CVector2D(0,0),CVector2D(6,8)},
+	{CVector2D(0,0),CVector2D(8,6)},
+	{CVector2D(0,0),CVector2D(8,8)},
+	{CVector2D(0,0),CVector2D(10,10)},
 };
 
 
@@ -15,6 +18,7 @@ void DungeonMarker::DungeonInit(DungeonData* _data,int _width,int _height,TileTy
 	if (!_data)return;
 
 	TileData* t_data = &(_data->m_tile);
+	
 
 	//‚‚³‚Ì‘å‚«‚³‚¾‚¯‰Šú‰»
 	t_data->resize(_width);
@@ -98,6 +102,7 @@ void DungeonMarker::CreateNextRoom(DungeonData* data,int _max_room_num)
 
 	TileData* t_data = &(data->m_tile);
 	RoomData* room_data = &(data->m_room);
+	EntranceDatas* e_data = &(data->m_entrances);
 	int max_room_num = _max_room_num;
 	
 	for (const RoomRect& room : (*room_data)) {
@@ -199,6 +204,8 @@ void DungeonMarker::CreateNextRoom(DungeonData* data,int _max_room_num)
 				//EraseTileAround(t_data, next_room, TileType::inside_wall_id);
 
 				(*t_data)[branch_point.y][branch_point.x] = (int)TileType::entrance_id;
+				//ƒGƒ“ƒgƒ‰ƒ“ƒXî•ñ‚Ì“o˜^
+				e_data->push_back(EntranceData((int)room_data->size(), CVector3D(branch_point.x, 0, branch_point.y), DirectionType(dir)));
 
 				EraseTile(t_data, next_room, TileType::room_id);
 
@@ -317,6 +324,33 @@ bool DungeonMarker::GetRandomDungeonPos(DungeonData* _data, CVector3D* _p_pos, T
 	(*_p_pos) = pos;
 
 	return true;
+}
+
+int DungeonMarker::GetRectGridNum(const CRect& _rect)
+{
+	CRect rect = _rect;
+
+	int grid_num= rect.m_width* rect.m_height;
+
+	return grid_num;
+}
+
+std::vector<CVector3D> DungeonMarker::GetRoomPosition(const CRect& _rect)
+{
+	CRect rect = _rect;
+
+	std::vector<CVector3D> positions;
+
+	for (int z = rect.m_top; z < rect.m_bottom; z++) {
+
+		for (int x = rect.m_left; x < rect.m_right; x++) {
+
+			positions.push_back(CVector3D(x, 0, z));
+
+		}
+	}
+	
+	return positions;
 }
 
 void DungeonMarker::DrawRoomIndex()

@@ -30,6 +30,9 @@
     <ClInclude Include="Game\Camera.h" />
     <ClInclude Include="Game\CharacterBase\CharacterBase.h" />
     <ClInclude Include="Game\Dijkstra\Dijkstra.h" />
+    <ClInclude Include="Game\DungeonEventManager\DungeonEventBase.h" />
+    <ClInclude Include="Game\DungeonEventManager\DungeonEventManager.h" />
+    <ClInclude Include="Game\DungeonEventManager\ItemDropEvent.h" />
     <ClInclude Include="Game\DungeonMarker.h" />
     <ClInclude Include="Game\Enemy\Enemy.h" />
     <ClInclude Include="Game\Enemy\EnemyState\AvoidState.h" />
@@ -115,6 +118,9 @@
     <ClCompile Include="Game\Camera.cpp" />
     <ClCompile Include="Game\CharacterBase\CharacterBase.cpp" />
     <ClCompile Include="Game\Dijkstra\Dijkstra.cpp" />
+    <ClCompile Include="Game\DungeonEventManager\DungeonEventBase.cpp" />
+    <ClCompile Include="Game\DungeonEventManager\DungeonEventManager.cpp" />
+    <ClCompile Include="Game\DungeonEventManager\ItemDropEvent.cpp" />
     <ClCompile Include="Game\DungeonMarker.cpp" />
     <ClCompile Include="Game\Enemy\Enemy.cpp" />
     <ClCompile Include="Game\Enemy\EnemyState\AvoidState.cpp" />

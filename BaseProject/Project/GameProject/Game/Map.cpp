@@ -48,9 +48,9 @@ void Map::Render()
 void Map::CollisionCheck(CollisionTask* _task)
 {
 	//もしプレイヤーなら当たり判定する
-	if (_task->GetPriority() != CollisionPriority::eCol_Player) return;
+	//if (_task->GetPriority() != CollisionPriority::eCol_Player) return;
 
-	if (Player* p = dynamic_cast<Player*> (_task->GetTask())) {
+	if (CharacterBase* c = dynamic_cast<CharacterBase*> (_task->GetTask())) {
 
 		//このキャラクターとオブジェクトとの当たり判定
 		{
@@ -60,8 +60,8 @@ void Map::CollisionCheck(CollisionTask* _task)
 			CVector3D v(0, 0, 0);
 
 			//カプセルとモデルとの衝突
-			int cnt = m_ground.CollisionCupsel(out, p->m_Capsule.m_start,
-				p->m_Capsule.m_end, p->m_Capsule.m_rad, 250);
+			int cnt = m_ground.CollisionCupsel(out, c->m_Capsule.m_start,
+				c->m_Capsule.m_end, c->m_Capsule.m_rad, 250);
 
 			//接触した面の数繰り返す
 			for (int i = 0; i < cnt; i++) {
@@ -69,30 +69,30 @@ void Map::CollisionCheck(CollisionTask* _task)
 				//接触した面が斜めより上を向いていたら地面
 				if (out[i].m_normal.y > 0.5f) {
 					//重力落下速度を0に戻す
-					p->m_Transform.m_pos_vec.y = 0;
+					c->m_Transform.m_pos_vec.y = 0;
 
-					p->m_IsGround = true;
+					c->m_IsGround = true;
 				}
 
 				float max_y = max(out[i].m_vertex[0].y, max(out[i].m_vertex[1].y, out[i].m_vertex[2].y));
 				//接触した面の方向へ、めり込んだ分押し戻す
-				CVector3D nv = out[i].m_normal * (p->m_Capsule.m_rad - out[i].m_dist);
+				CVector3D nv = out[i].m_normal * (c->m_Capsule.m_rad - out[i].m_dist);
 				//最も大きな移動量を求める
 				v.y = fabs(v.y) > fabs(nv.y) ? v.y : nv.y;
 				//膝下までは乗り越える
 				//膝上以上の壁のみ押し戻される
-				if (max_y > p->m_Transform.position.y + 0.5f) {
+				if (max_y > c->m_Transform.position.y + 0.5f) {
 					v.x = fabs(v.x) > fabs(nv.x) ? v.x : nv.x;
 					v.z = fabs(v.z) > fabs(nv.z) ? v.z : nv.z;
 				}
 
 			}
 			//押し戻す
-			p->m_Transform.position += v;
+			c->m_Transform.position += v;
 		}
 
 		//プレイヤーの位置
-		CVector3D p_pos = p->m_Transform.position;
+		CVector3D p_pos = c->m_Transform.position;
 		//配列のどの位置にいるかXとZの大きさを求める
 		int x = max(0, min(MAP_WIDTH, (int)p_pos.x / TILE_SIZE));
 
@@ -129,8 +129,8 @@ void Map::CollisionCheck(CollisionTask* _task)
 				CVector3D v(0, 0, 0);
 
 				//カプセルとモデルとの衝突
-				int cnt = m_wall.CollisionCupsel(out, p->m_Capsule.m_start,
-					p->m_Capsule.m_end, p->m_Capsule.m_rad, 250);
+				int cnt = m_wall.CollisionCupsel(out, c->m_Capsule.m_start,
+					c->m_Capsule.m_end, c->m_Capsule.m_rad, 250);
 
 				//接触した面の数繰り返す
 				for (int i = 0; i < cnt; i++) {
@@ -138,26 +138,26 @@ void Map::CollisionCheck(CollisionTask* _task)
 					//接触した面が斜めより上を向いていたら地面
 					if (out[i].m_normal.y > 0.5f) {
 						//重力落下速度を0に戻す
-						p->m_Transform.m_pos_vec.y = 0;
+						c->m_Transform.m_pos_vec.y = 0;
 
-						p->m_IsGround = true;
+						c->m_IsGround = true;
 					}
 
 					float max_y = max(out[i].m_vertex[0].y, max(out[i].m_vertex[1].y, out[i].m_vertex[2].y));
 					//接触した面の方向へ、めり込んだ分押し戻す
-					CVector3D nv = out[i].m_normal * (p->m_Capsule.m_rad - out[i].m_dist);
+					CVector3D nv = out[i].m_normal * (c->m_Capsule.m_rad - out[i].m_dist);
 					//最も大きな移動量を求める
 					v.y = fabs(v.y) > fabs(nv.y) ? v.y : nv.y;
 					//膝下までは乗り越える
 					//膝上以上の壁のみ押し戻される
-					if (max_y > p->m_Transform.position.y + 0.5f) {
+					if (max_y > c->m_Transform.position.y + 0.5f) {
 						v.x = fabs(v.x) > fabs(nv.x) ? v.x : nv.x;
 						v.z = fabs(v.z) > fabs(nv.z) ? v.z : nv.z;
 					}
 
 				}
 				//押し戻す
-				p->m_Transform.position += v;
+				c->m_Transform.position += v;
 			}
 
 		}

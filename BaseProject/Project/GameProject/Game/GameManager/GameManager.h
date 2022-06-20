@@ -3,7 +3,7 @@
 #include"../../Singleton/Singleton.h"
 #include"../../StateMachine/StateAI.h"
 #include"../StaticObject.h"
-
+#include"../DungeonEventManager/DungeonEventManager.h"
 
 //ゲームイベントを起こすマネージャー
 class GameManager : public Base,public Singleton<GameManager>{
@@ -40,6 +40,7 @@ public:
 	//ゲームクリアのダンジョンの階層の数値
 	int m_ClearDungeonNum;
 
+	DungeonEventManager m_event_manager;
 public:
 	void Update();
 	void Render();

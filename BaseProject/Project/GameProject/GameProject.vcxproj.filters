@@ -238,6 +238,15 @@
     <ClInclude Include="Singleton\Singleton.h">
       <Filter>Singleton</Filter>
     </ClInclude>
+    <ClInclude Include="Game\DungeonEventManager\DungeonEventManager.h">
+      <Filter>Game\DungeonEventManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DungeonEventManager\DungeonEventBase.h">
+      <Filter>Game\DungeonEventManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\DungeonEventManager\ItemDropEvent.h">
+      <Filter>Game\DungeonEventManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TaskSystem\CollisionTask.cpp">
@@ -448,6 +457,15 @@
     <ClCompile Include="Game\GameManager\State\BeginGameState.cpp">
       <Filter>Game\GameManager\State</Filter>
     </ClCompile>
+    <ClCompile Include="Game\DungeonEventManager\DungeonEventManager.cpp">
+      <Filter>Game\DungeonEventManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\DungeonEventManager\DungeonEventBase.cpp">
+      <Filter>Game\DungeonEventManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\DungeonEventManager\ItemDropEvent.cpp">
+      <Filter>Game\DungeonEventManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Base">
@@ -515,6 +533,9 @@
     </Filter>
     <Filter Include="Singleton">
       <UniqueIdentifier>{279ccb41-abc3-4437-90c6-a776bb2dfc33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\DungeonEventManager">
+      <UniqueIdentifier>{c3dd9aa5-43d7-4f97-952b-760d4eb5ca59}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

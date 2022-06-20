@@ -12,4 +12,7 @@ public:
 
 	void Exit();
 
+	void Render();
+
+	void CollisionCheck(CollisionTask* _task);
 };
