@@ -10,12 +10,20 @@ public:
 	
 	int entrance_num;
 private:
-	
+	bool m_is_open;//äJÇ≠Ç©Ç«Ç§Ç©
+
+	CModelObj m_door1;
+	CModelObj m_door2;//ëfçﬁ
+
+	Transform m_door1_transform;
+	Transform m_door2_transform;
 
 	CollisionTask m_Col;
 
 	float m_rad;
 public:
 	Entrance(int entrance_num);
+	void Update()override;
+	void Render()override;
 	void CollisionCheck(CollisionTask* _task);
 };
