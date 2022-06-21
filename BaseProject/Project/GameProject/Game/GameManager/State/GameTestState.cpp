@@ -7,6 +7,7 @@
 #include"../../FireElemental/FireElemental.h"
 #include"../../Object/Goal.h"
 #include"../../Enemy/Enemy.h"
+#include"../../Object/Entrance.h"
 
 GameTestState::GameTestState(GameManager* owner) : State(owner)
 {
@@ -54,11 +55,12 @@ void GameTestState::Enter()
 
 	//î‡ÇÃèoåª
 	DungeonMarker::DungeonData d_data = Map::Instance().GetDungeonData();
-	DungeonMarker::RoomData r_data = d_data.m_room;
+	DungeonMarker::RoomDatas2 r_data = d_data.m_rooms2;
 	DungeonMarker::EntranceDatas e_data = d_data.m_entrances;
 
-	for (const DungeonMarker::EntranceData& entrance : e_data) {
+	for (int i = 0; i < e_data.size();i++) {
 		
+		auto entrance = e_data[i];
 		CVector3D pos = entrance.position;
 		
 		CVector3D rot(DtoR(90),0,0);
@@ -75,37 +77,20 @@ void GameTestState::Enter()
 			break;
 		}
 		
-		new Geometry(Transform(pos * TILE_SIZE,rot, CVector3D(1, 1, 1)), StarterAsset::Cylinder);
+		//new Geometry(Transform(pos * TILE_SIZE,rot, CVector3D(1, 1, 1)), StarterAsset::Cylinder);
+		Entrance* e =  new Entrance(entrance.parent_room_num);
+		e->m_Transform = Transform(pos * TILE_SIZE, rot, CVector3D(1, 1, 1));
 	}
 
-	owner->m_event_manager.SetEvent(Map::Instance().GetDungeonData(),TILE_SIZE);
-
-	//ìGÇÃèoåª
-	
-	/*for(const CRect& room : r_data)
-	{
-		int num = DungeonMarker::GetRectGridNum(room);
-		if (num < 6)continue;
-		std::vector<CVector3D> positions = DungeonMarker::GetRoomPosition(room);
-
-		int enemy_num = num / 2;
-
-		for (int i = 0; i < enemy_num;i++) {
-			int index = Utility::Rand(0, (int)positions.size());
-			CVector3D pos = positions[index];
-			new Enemy(Transform((pos*TILE_SIZE) + CVector3D(0,1,0), CVector3D::zero, CVector3D(0.01f, 0.01f, 0.01f)), "Golem");
-			positions.erase(positions.begin() + index);
-		}
-		
-	}*/
-
-
+	DungeonEventManager::Build();
+	DungeonEventManager::Instance().SetEvent(Map::Instance().GetDungeonData(), TILE_SIZE);
 
 }
 
 void GameTestState::Execute()
 {
-	owner->m_event_manager.Run();
+	DungeonEventManager::Instance().Run();
+	//owner->m_event_manager.Run();
 }
 
 void GameTestState::Exit()
@@ -114,7 +99,8 @@ void GameTestState::Exit()
 
 void GameTestState::Render()
 {
-	owner->m_event_manager.RenderALLAABB();
+	DungeonEventManager::Instance().RenderALLAABB();
+	//owner->m_event_manager.RenderALLAABB();
 }
 
 void GameTestState::CollisionCheck(CollisionTask* _task)
@@ -126,7 +112,8 @@ void GameTestState::CollisionCheck(CollisionTask* _task)
 
 		CVector3D pos = c->m_Transform.position;
 
-		owner->m_event_manager.CheckCollision(pos + CVector3D(0,2.0f,0));
+		//owner->m_event_manager.CheckCollision(pos + CVector3D(0,2.0f,0));
+		DungeonEventManager::Instance().CheckCollision(pos + CVector3D(0, 2.0f, 0));
 	}
 
 

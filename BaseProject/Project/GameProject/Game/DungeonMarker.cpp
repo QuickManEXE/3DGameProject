@@ -53,6 +53,8 @@ void DungeonMarker::CreateDungeon(DungeonData* _data, const CVector2D& _dungeon_
 
 	CreateNextRoom(&data,_max_room_num);
 
+	ConnectEntraceToRoom(&data);
+
 	printf("\nダンジョンの生成が終わりました\n");
 
 	DrawDungeon(&data);
@@ -66,6 +68,7 @@ void DungeonMarker::CreateFirstRoom(DungeonData* _data, const CVector2D& _first_
 
 	TileData* t_data = &(_data->m_tile);
 	RoomData* r_data = &(_data->m_room);
+	RoomDatas2* r_data2 = &(_data->m_rooms2);
 	CVector2D center_room_size = _first_room_size;
 
 	//全体の大きさを確認
@@ -89,6 +92,9 @@ void DungeonMarker::CreateFirstRoom(DungeonData* _data, const CVector2D& _first_
 		center_x +(int)center_room_size.x / 2, center_y + (int)center_room_size.x / 2);
 
 	r_data->push_back(center_room);
+	RoomData2 center_room_data;
+	center_room_data.room_rect = center_room;
+	(*r_data2).push_back(center_room_data);
 
 	EraseTile(t_data, center_room, TileType::room_id);
 
@@ -101,11 +107,14 @@ void DungeonMarker::CreateNextRoom(DungeonData* data,int _max_room_num)
 	//②ルームデータの中からランダムに部屋か通路を生成可能な面(branch_point)を見つける
 
 	TileData* t_data = &(data->m_tile);
+	RoomDatas2* rooms = &(data->m_rooms2);
 	RoomData* room_data = &(data->m_room);
 	EntranceDatas* e_data = &(data->m_entrances);
 	int max_room_num = _max_room_num;
 	
-	for (const RoomRect& room : (*room_data)) {
+	for (const RoomData2& room_data2 : (*rooms)) {
+
+		const RoomRect& room = room_data2.room_rect;
 
 		for (int dir = (int)DirectionType::direction_north; dir < (int)DirectionType::direction_count; dir++) 
 		{
@@ -199,13 +208,19 @@ void DungeonMarker::CreateNextRoom(DungeonData* data,int _max_room_num)
 
 			if (IsCreateRoom(t_data, next_room)) {
 
+				
 				room_data->push_back(next_room);
+
+				RoomData2 next_room_data;
+				next_room_data.room_rect = next_room;
+				rooms->push_back(next_room_data);
 
 				//EraseTileAround(t_data, next_room, TileType::inside_wall_id);
 
 				(*t_data)[branch_point.y][branch_point.x] = (int)TileType::entrance_id;
 				//エントランス情報の登録
-				e_data->push_back(EntranceData((int)room_data->size(), CVector3D(branch_point.x, 0, branch_point.y), DirectionType(dir)));
+				//e_data->push_back(EntranceData((int)room_data->size(), CVector3D(branch_point.x, 0, branch_point.y), DirectionType(dir)));
+				e_data->push_back(EntranceData((int)rooms->size(), CVector3D(branch_point.x, 0, branch_point.y), DirectionType(dir)));
 
 				EraseTile(t_data, next_room, TileType::room_id);
 
@@ -287,6 +302,67 @@ bool DungeonMarker::IsCreateRoom(TileData* _t_data, const RoomRect& _r_data)
 	}
 
 	return is_create;
+}
+
+std::vector<CVector3D> DungeonMarker::GetSurroundPos(const TileData& _t_data, const RoomRect& _r_data, TileType _tile_type)
+{
+	std::vector<CVector3D> positions;
+
+	TileData t_data = _t_data;
+	RoomRect r_data = _r_data;
+
+	for (int h = r_data.m_top - 1; h < r_data.m_bottom + 1; h++) {
+
+		if (h < 0 || h >= t_data.size())return positions;
+
+		for (int w = r_data.m_left - 1; w < r_data.m_right + 1; w++) {
+
+			if (w < 0 || w >= t_data[0].size())return positions;
+
+			if (t_data[h][w] == (int)_tile_type) {
+				
+				positions.push_back(CVector3D(w, 0, h));
+
+			}
+
+		}
+
+	}
+
+	return positions;
+}
+
+void DungeonMarker::ConnectEntraceToRoom(DungeonData* _data)
+{
+	if (!_data)return;
+
+	DungeonData* d_data = _data;
+	TileData t_data = d_data->m_tile;
+	RoomDatas2 rooms = d_data->m_rooms2;
+
+	for (RoomData2& room : rooms) {
+
+		RoomRect rect = room.room_rect;
+		RoomRect surround_rect = RoomRect(rect.m_left - 1, rect.m_top - 1, rect.m_right + 1, rect.m_bottom + 1);
+
+		auto positions = GetSurroundPos(t_data, surround_rect,TileType::entrance_id);
+
+		for (auto position : positions)
+		{
+			for (const EntranceData& entrance : (*d_data).m_entrances) {
+
+				if (position == entrance.position) {
+
+					room.entrances.push_back(entrance);
+
+				}
+
+			}
+		}
+
+	}
+
+
 }
 
 bool DungeonMarker::GetRandomDungeonPos(DungeonData* _data, CVector3D* _p_pos, TileType _tile_type)

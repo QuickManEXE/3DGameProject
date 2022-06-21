@@ -8,12 +8,6 @@ Goal::Goal():
 {
 	m_Col.RegistCollision(CollisionTask::eLayer_Game, this, (CollisionFunc)&Goal::CollisionCheck, CollisionPriority::eCol_Field,"Goal");
 
-	/*SetTransform(transform);
-	m_Model.SetPos(transform.position);
-	m_Model.SetRot(transform.rotation);
-	m_Model.SetScale(transform.scale);
-	m_Model.UpdateMatrix();*/
-
 	m_rad = 5.0f;
 }
 

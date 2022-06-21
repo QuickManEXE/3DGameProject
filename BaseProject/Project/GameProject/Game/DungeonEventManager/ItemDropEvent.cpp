@@ -2,12 +2,13 @@
 #include"../Geometry.h"
 #include"../Map.h"
 
-ItemDropEvent::ItemDropEvent(DungeonMarker::RoomRect _room) : DungeonEventBase(_room)
+ItemDropEvent::ItemDropEvent(DungeonMarker::RoomData2 _room) : DungeonEventBase(_room)
 {
 }
 
 void ItemDropEvent::Enter()
 {
+	auto m_room = m_room2.room_rect;
 	
 	int width = (m_room.m_right - m_room.m_left) /2;
 	int height = (m_room.m_bottom -m_room.m_top) /2;

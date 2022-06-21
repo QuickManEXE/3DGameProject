@@ -42,6 +42,8 @@ CVector3D::CVector3D(const SVector2D& v)
 CVector3D::CVector3D(const CVector4D& v) { x = v.x; y = v.y; z = v.z; }
 CVector3D CVector3D::operator = (const CVector4D& v) { x = v.x; y = v.y; z = v.z; return *this; }
 
+bool CVector3D::operator == (const CVector3D& v) { if ((int)x == (int)v.x && (int)y == (int)v.y && (int)z == (int)v.z){return true; } else return false; };
+
 CVector3D CVector3D::operator-() const
 {
 	return CVector3D(-x, -y, -z);

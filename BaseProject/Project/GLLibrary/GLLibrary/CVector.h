@@ -103,6 +103,8 @@ public:
 	CVector3D(const CVector4D&);
 	CVector3D operator = (const CVector4D&);
 
+	bool operator == (const CVector3D&);
+
 	//ƒxƒNƒgƒ‹ˆø‚«ŽZ( this - v )
 	CVector3D operator - () const;
 

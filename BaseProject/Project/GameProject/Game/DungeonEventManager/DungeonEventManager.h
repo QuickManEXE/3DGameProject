@@ -1,9 +1,10 @@
 #pragma once
 #include"DungeonEventBase.h"
 #include"../DungeonMarker.h"
+#include"../../Singleton/Singleton.h"
 
-class DungeonEventManager {
-
+class DungeonEventManager : public Singleton<DungeonEventManager>{
+	friend class Singleton<DungeonEventManager>;
 public:
 
 	//ダンジョンイベント構造体
@@ -33,4 +34,6 @@ public:
 	void SetEvent(DungeonMarker::DungeonData _d_data, float _tile_size);
 
 	void RenderALLAABB();
+
+	void ChoiceEvent(int grid_num);
 };

@@ -5,7 +5,7 @@ class ItemDropEvent : public DungeonEventBase {
 
 public:
 
-	ItemDropEvent(DungeonMarker::RoomRect _room);
+	ItemDropEvent(DungeonMarker::RoomData2 _room);
 
 	//イベント開始時処理
 	virtual void Enter()override;

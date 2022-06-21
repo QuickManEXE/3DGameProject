@@ -247,6 +247,15 @@
     <ClInclude Include="Game\DungeonEventManager\ItemDropEvent.h">
       <Filter>Game\DungeonEventManager</Filter>
     </ClInclude>
+    <ClInclude Include="Game\DungeonEventManager\EnemyBattleEvent.h">
+      <Filter>Game\DungeonEventManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Object\Entrance.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\EnemySquad\EnemySquad.h">
+      <Filter>Game\EnemySquad</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TaskSystem\CollisionTask.cpp">
@@ -466,6 +475,15 @@
     <ClCompile Include="Game\DungeonEventManager\ItemDropEvent.cpp">
       <Filter>Game\DungeonEventManager</Filter>
     </ClCompile>
+    <ClCompile Include="Game\DungeonEventManager\EnemyBattleEvent.cpp">
+      <Filter>Game\DungeonEventManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Object\Entrance.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\EnemySquad\EnemySquad.cpp">
+      <Filter>Game\EnemySquad</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Base">
@@ -536,6 +554,9 @@
     </Filter>
     <Filter Include="Game\DungeonEventManager">
       <UniqueIdentifier>{c3dd9aa5-43d7-4f97-952b-760d4eb5ca59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\EnemySquad">
+      <UniqueIdentifier>{3100b4cb-5aed-4100-8f51-c9674b112af7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

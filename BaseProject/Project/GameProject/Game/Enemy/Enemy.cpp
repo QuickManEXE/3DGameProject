@@ -41,7 +41,7 @@ Enemy::Enemy(const Transform& _transform, const char* _modelName):
 
 	m_rad = 0.2f;
 
-	m_HitPoint = rand()% 3 + 5;
+	m_HitPoint = 1; rand() % 3 + 5;
 
 	// •`‰æƒ^ƒXƒN‚É“o˜^
 	//m_Render.RegistRender(this, (RenderFunc)&Enemy::Render, RenderPriority::eRd_Enemy, "Enemy");

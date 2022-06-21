@@ -5,13 +5,13 @@ class DungeonEventBase {
 
 public:
 
-	DungeonMarker::RoomRect m_room;
+	DungeonMarker::RoomData2 m_room2;
 
 	bool is_active;
 	bool is_complete;
 
 	DungeonEventBase();
-	DungeonEventBase(DungeonMarker::RoomRect _room);
+	DungeonEventBase(DungeonMarker::RoomData2 _room2);
 
 	//イベント開始時処理
 	virtual void Enter();
