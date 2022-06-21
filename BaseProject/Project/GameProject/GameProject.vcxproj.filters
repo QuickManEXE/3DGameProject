@@ -217,10 +217,10 @@
     <ClInclude Include="Game\DungeonMarker.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\AnimObject.h">
+    <ClInclude Include="Game\SkeletalMeshObject.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\NonAnimObject.h">
+    <ClInclude Include="Game\StaticMeshObject.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\Object\Goal.h">
@@ -454,10 +454,10 @@
     <ClCompile Include="Game\DungeonMarker.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\AnimObject.cpp">
+    <ClCompile Include="Game\SkeletalMeshObject.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\NonAnimObject.cpp">
+    <ClCompile Include="Game\StaticMeshObject.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\Object\Goal.cpp">

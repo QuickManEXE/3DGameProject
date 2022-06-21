@@ -38,20 +38,6 @@ GameManager::GameManager() : Base(UpdatePriority::eUp_Manager,"GameManager")
 
 }
 
-//GameManager* GameManager::GetInstance()
-//{
-//	if (!mp_Instance) {
-//		CreateInstance();
-//		return mp_Instance;
-//	}
-//	else return mp_Instance;
-//}
-//
-//void GameManager::CreateInstance()
-//{
-//	mp_Instance = new GameManager();
-//}
-
 void GameManager::Update()
 {
 	m_StateAI.StateUpdate();
@@ -65,4 +51,28 @@ void GameManager::Render()
 void GameManager::CollisionCheck(CollisionTask* task)
 {
 	m_StateAI.StateCollisionCheck(task);
+}
+
+void GameManager::Destory()
+{
+	//Á‚·‚à‚Ì
+	//ƒhƒA
+	auto tasks = TaskManager::GetInstance()->FindTasks("Enemy");
+	for (auto task : tasks) {
+		task->SetKill();
+	}
+
+	tasks = TaskManager::GetInstance()->FindTasks("EnemySquad");
+	for (auto task : tasks) {
+		task->SetKill();
+	}
+
+	//“G
+	tasks = TaskManager::GetInstance()->FindTasks("Entrance");
+	for (auto task : tasks) {
+		task->SetKill();
+	}
+
+	//
+
 }

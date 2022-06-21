@@ -15,21 +15,28 @@ GameTestState::GameTestState(GameManager* owner) : State(owner)
 
 void GameTestState::Enter()
 {
+	//ダンジョン開始の初期化処理
+	//目標の階層と開始の階層を設定
 	owner->m_CurrentDungeonNum = 1;
 	owner->m_ClearDungeonNum = 5;
 
+	//スカイボックスの生成
 	new SkyBox();
 
+	//プレイヤーの生成
 	new Player(Transform(CVector3D(0, 0, 0), CVector3D(0, DtoR(0), 0), CVector3D(0.01f, 0.01f, 0.01f)), "Archer2");
-
+	//プレイヤーのステートを通常状態にする
 	Player::GetInstance()->m_StateAI.ChangeState(PlayerState::IdleState);
 
-	new Geometry(Transform(CVector3D::zero, CVector3D::zero, CVector3D(10,10,10)), StarterAsset::Plate);
+	//
+	//new Geometry(Transform(CVector3D::zero, CVector3D::zero, CVector3D(10,10,10)), StarterAsset::Plate);
 
+	//ダンジョンインスタンスの生成
 	Map::Build();
-
+	//ダンジョンデータの生成
 	Map::Instance().CreateDungeon(CVector2D(MAP_WIDTH,MAP_HEIGHT),CVector2D(4,4),CVector2D(MAP_WIDTH/2,MAP_HEIGHT/2),10);
 
+	//プレイヤーをランダムな位置に配置
 	CVector3D player_pos;
 
 	if (DungeonMarker::GetRandomDungeonPos(&Map::Instance().GetDungeonData(), &player_pos, DungeonMarker::TileType::room_id)) {
@@ -39,11 +46,12 @@ void GameTestState::Enter()
 		Player::GetInstance()->m_Transform.position = pos;
 	};
 
-
+	//UIインスタンスの生成
 	GUI::Build();
-
+	//ミニマップデータの初期化
 	GUI::Instance().InitMiniMap(Map::Instance().GetDungeonData());
 
+	//ゴールの生成
 	Goal::Build();
 
 	if (DungeonMarker::GetRandomDungeonPos(&Map::Instance().GetDungeonData(), &player_pos, DungeonMarker::TileType::room_id)) {
@@ -60,10 +68,10 @@ void GameTestState::Enter()
 
 	for (int i = 0; i < e_data.size();i++) {
 		
-		auto entrance = e_data[i];
+		const auto& entrance = e_data[i];
 		CVector3D pos = entrance.position;
 		
-		CVector3D rot(DtoR(90),0,0);
+		CVector3D rot(0,0,0);
 		switch (entrance.dir)
 		{
 		case DungeonMarker::DirectionType::direction_east:
@@ -76,13 +84,16 @@ void GameTestState::Enter()
 		default:
 			break;
 		}
+		//rot.y += DtoR(90);
 		
 		//new Geometry(Transform(pos * TILE_SIZE,rot, CVector3D(1, 1, 1)), StarterAsset::Cylinder);
 		Entrance* e =  new Entrance(entrance.parent_room_num);
 		e->m_Transform = Transform(pos * TILE_SIZE, rot, CVector3D(1, 1, 1));
 	}
 
+	//ダンジョンイベントシステムのインスタンスの生成
 	DungeonEventManager::Build();
+	//イベントデータの登録
 	DungeonEventManager::Instance().SetEvent(Map::Instance().GetDungeonData(), TILE_SIZE);
 
 }
@@ -90,17 +101,18 @@ void GameTestState::Enter()
 void GameTestState::Execute()
 {
 	DungeonEventManager::Instance().Run();
-	//owner->m_event_manager.Run();
 }
 
 void GameTestState::Exit()
 {
+	owner->Destory();
+
+	DungeonEventManager::Instance().RemoveEvents();
 }
 
 void GameTestState::Render()
 {
 	DungeonEventManager::Instance().RenderALLAABB();
-	//owner->m_event_manager.RenderALLAABB();
 }
 
 void GameTestState::CollisionCheck(CollisionTask* _task)
@@ -112,7 +124,6 @@ void GameTestState::CollisionCheck(CollisionTask* _task)
 
 		CVector3D pos = c->m_Transform.position;
 
-		//owner->m_event_manager.CheckCollision(pos + CVector3D(0,2.0f,0));
 		DungeonEventManager::Instance().CheckCollision(pos + CVector3D(0, 2.0f, 0));
 	}
 

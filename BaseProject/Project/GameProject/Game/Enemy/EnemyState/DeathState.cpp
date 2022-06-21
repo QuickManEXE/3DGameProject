@@ -66,7 +66,7 @@ void DeathState::CollisionCheck(CollisionTask* task)
 	{
 		//静的なオブジェクトとの判定
 	case  CollisionPriority::eCol_Field:
-		if (NonAnimObject* b = dynamic_cast<NonAnimObject*> (task->GetTask())) {
+		if (StaticMeshObject* b = dynamic_cast<StaticMeshObject*> (task->GetTask())) {
 
 			CVector3D d = b->m_Transform.position - owner->m_Transform.position;
 

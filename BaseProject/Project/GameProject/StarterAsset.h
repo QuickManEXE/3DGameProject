@@ -10,6 +10,7 @@ static const char* Torus = "Torus";
 static const char* Cone = "Cone";
 static const char* Quad = "Quad";
 static const char* Plate = "Plate";
+static const char* Square = "Square";
 
 static const char* xbot = "xbot";
 static const char* ybot = "ybot";
@@ -24,7 +25,8 @@ static const char* ybot = "ybot";
 		ADD_RESOURCE(Torus, CModel::CreateModel("StarterAsset/Geometry/Torus.obj"));
 		ADD_RESOURCE(Cone, CModel::CreateModel("StarterAsset/Geometry/Cone.obj"));
 		ADD_RESOURCE(Quad, CModel::CreateModel("StarterAsset/Geometry/Quad.obj"));
-		ADD_RESOURCE(Plate, CModel::CreateModel("StarterAsset/Geometry/Plate.obj"));
+		ADD_RESOURCE(Plate, CModel::CreateModel("StarterAsset/Geometry/Plate.obj")); 
+		ADD_RESOURCE(Square, CModel::CreateModel("StarterAsset/Geometry/Square.obj"));
 
 		//Šî–{ƒ‚ƒfƒ‹
 		ADD_RESOURCE(xbot, CModel::CreateModel("StarterAsset/Model/xbot/xbot.a3m"));

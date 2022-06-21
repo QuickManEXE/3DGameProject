@@ -45,4 +45,5 @@ public:
 	void Update();
 	void Render();
 	void CollisionCheck(CollisionTask* _task);
+	void Destory();
 };

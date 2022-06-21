@@ -2,7 +2,7 @@
 
 
 Geometry::Geometry(const Transform& transform,const char* model_name):
-	NonAnimObject(UpdatePriority::eUp_Field,model_name,RenderPriority::eRd_Field)
+	StaticMeshObject(UpdatePriority::eUp_Field,"Geometry" ,model_name, RenderPriority::eRd_Field)
 {
 	m_Col.RegistCollision(CollisionTask::eLayer_Game, this, (CollisionFunc)&Geometry::CollisionCheck, CollisionPriority::eCol_Field, model_name);
 

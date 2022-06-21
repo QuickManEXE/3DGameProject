@@ -29,7 +29,7 @@ Enemy::Index Enemy::m_culsule_idx[m_cupsule_max] = {
 
 
 Enemy::Enemy(const Transform& _transform, const char* _modelName):
-	CharacterBase(UpdatePriority::eUp_Enemy,_modelName,RenderPriority::eRd_Enemy)
+	CharacterBase(UpdatePriority::eUp_Enemy,"Enemy",_modelName, RenderPriority::eRd_Enemy)
 {
 	
 	m_Model = COPY_RESOURCE(_modelName, CModelA3M);
@@ -200,7 +200,7 @@ bool Enemy::SearchPlayer()
 
 				if (c->GetPriority() == CollisionPriority::eCol_Field) {
 
-					if (NonAnimObject* g = dynamic_cast<NonAnimObject*> (c->GetTask())) {
+					if (StaticMeshObject* g = dynamic_cast<StaticMeshObject*> (c->GetTask())) {
 
 						if (CCollision::CollisionShpere(g->m_Transform.position, 0,
 							m_Transform.position, 10.0f)) {
@@ -266,7 +266,7 @@ void Enemy::HangCheck(CollisionTask* _task)
 {
 	if (_task->GetPriority() != CollisionPriority::eCol_Field) return;
 
-	if (NonAnimObject* b = dynamic_cast<NonAnimObject*> (_task->GetTask())) {
+	if (StaticMeshObject* b = dynamic_cast<StaticMeshObject*> (_task->GetTask())) {
 
 		CVector3D d = b->m_Transform.position - m_Transform.position;
 
@@ -298,7 +298,7 @@ void Enemy::HangCheck(CollisionTask* _task)
 
 void Enemy::CanFallCheck(CollisionTask* _task)
 {
-	if (NonAnimObject* b = dynamic_cast<NonAnimObject*> (_task->GetTask())) {
+	if (StaticMeshObject* b = dynamic_cast<StaticMeshObject*> (_task->GetTask())) {
 
 		CVector3D d = b->m_Transform.position - m_Transform.position;
 

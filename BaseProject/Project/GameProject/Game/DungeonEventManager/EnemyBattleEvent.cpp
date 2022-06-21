@@ -29,7 +29,7 @@ void EnemyBattleEvent::Enter()
 		m_squad->SpawnEnemy(pos * TILE_SIZE);
 
 		//m_enemys.push_back(new Enemy(Transform((pos * TILE_SIZE) + CVector3D(0, 1, 0), CVector3D::zero, CVector3D(0.01f, 0.01f, 0.01f)), "Golem"));
-		//positions.erase(positions.begin() + index);
+		positions.erase(positions.begin() + index);
 	}
 
 

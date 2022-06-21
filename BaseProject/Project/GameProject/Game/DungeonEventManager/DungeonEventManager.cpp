@@ -102,3 +102,16 @@ void DungeonEventManager::RenderALLAABB()
 void DungeonEventManager::ChoiceEvent(int grid_num)
 {
 }
+
+void DungeonEventManager::RemoveEvents()
+{
+	m_current_event = nullptr;
+
+	for (const DungeonEvent& event : m_dungeon_events) {
+
+		delete event.event;
+	}
+
+	m_dungeon_events.clear();
+
+}

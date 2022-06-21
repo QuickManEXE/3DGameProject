@@ -1,7 +1,7 @@
 #pragma once
 #include "../../Base/Base.h"
 #include"../../StateMachine/StateAI.h"
-#include"../NonAnimObject.h"
+#include"../StaticMeshObject.h"
 
 
 

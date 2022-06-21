@@ -1,5 +1,5 @@
 #include "WireAimState.h"
-#include"../../NonAnimObject.h"
+#include"../../StaticMeshObject.h"
 #include"../../Arrow.h"
 #include"../../../SoundResource.h"
 #include"../../Rope/Rope.h"
@@ -40,7 +40,7 @@ void WireAimState::CollisionCheck(CollisionTask* task)
 {
 	owner->CollisionObject(task);
 	
-	if (NonAnimObject* b = dynamic_cast<NonAnimObject*> (task->GetTask())) {
+	if (StaticMeshObject* b = dynamic_cast<StaticMeshObject*> (task->GetTask())) {
 
 		//自分のポジションからカメラの方向を求めて一定距離のポリゴンに当たっているか確かめる
 		

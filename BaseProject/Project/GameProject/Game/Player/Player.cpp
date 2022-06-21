@@ -34,7 +34,7 @@ Player* Player::GetInstance()
 }
 
 Player::Player(const Transform& _transform, const char* _modelName) :
-CharacterBase(UpdatePriority::eUp_Player,_modelName,RenderPriority::eRd_Player)
+CharacterBase(UpdatePriority::eUp_Player,"Player",_modelName, RenderPriority::eRd_Player)
 {
 	mp_Instance = this;
 
@@ -167,7 +167,7 @@ void Player::CollisionObject(CollisionTask* _task)
 	if (_task->GetPriority() != CollisionPriority::eCol_Field)return;
 
 
-	if (NonAnimObject* b = dynamic_cast<NonAnimObject*> (_task->GetTask())) {
+	if (StaticMeshObject* b = dynamic_cast<StaticMeshObject*> (_task->GetTask())) {
 		
 
 		CVector3D d = b->m_Transform.position - m_Transform.position;
@@ -221,7 +221,7 @@ void Player::HangCheck(CollisionTask* _task)
 {
 	if (_task->GetPriority() != CollisionPriority::eCol_Field)return;
 
-	if (NonAnimObject* b = dynamic_cast<NonAnimObject*> (_task->GetTask())) {
+	if (StaticMeshObject* b = dynamic_cast<StaticMeshObject*> (_task->GetTask())) {
 
 		CVector3D d = b->m_Transform.position - m_Transform.position;
 		if (d.Length() > b->GetModel().GetMax().Length())return;
@@ -438,7 +438,7 @@ void Player::CollisionCheckToField(CollisionTask* _task){
 
 	if (_task->GetPriority() != CollisionPriority::eCol_Field)return;
 
-	if (NonAnimObject* object = dynamic_cast<NonAnimObject*> (_task->GetTask())) {
+	if (StaticMeshObject* object = dynamic_cast<StaticMeshObject*> (_task->GetTask())) {
 
 
 		CVector3D d = object->m_Transform.position - m_Transform.position;
@@ -538,7 +538,7 @@ void Player::CollisionIsJump(CollisionTask* _task)
 	//もしジャンプ用の線コライダーがフィールドに当たってないなら
 	if (_task->GetPriority() != CollisionPriority::eCol_Field)return;
 
-	if (NonAnimObject* b = dynamic_cast<NonAnimObject*> (_task->GetTask())) {
+	if (StaticMeshObject* b = dynamic_cast<StaticMeshObject*> (_task->GetTask())) {
 
 		CVector3D d = b->m_Transform.position - m_Transform.position;
 		if (d.Length() > b->GetModel().GetMax().Length())return;

@@ -2,6 +2,7 @@
 #define INCLUDE_TASK_MANAGER
 
 #include "Task.h"
+#include<vector>
 
 // ƒVƒ“ƒOƒ‹ƒgƒ“
 
@@ -36,6 +37,8 @@ public:
 	void AddKill(Task* _killTask);
 
 	Task* FindTask(int _priorty);
+
+	std::vector<Task*> FindTasks(const char* _name);
 private:
 	TaskManager();
 	~TaskManager();

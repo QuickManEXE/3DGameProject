@@ -198,6 +198,31 @@ Task* TaskManager::FindTask(int _priorty)
 	return nullptr;
 }
 
+std::vector<Task*> TaskManager::FindTasks(const char* _name)
+{
+	std::vector<Task*> tasks;
+	// 更新タスク
+	Task* currentTask = mp_ListFirst;
+
+	// 更新
+	while (currentTask)
+	{
+		// 次のタスク
+		Task* nextTask = currentTask->mp_Next;
+
+		// m_killが真の場合に削除
+		if (strcmp(currentTask->GetName(),_name) == 0)
+		{
+			tasks.push_back(currentTask);
+		}
+
+		// 次のタスク
+		currentTask = nextTask;
+	}
+
+	return tasks;
+}
+
 void TaskManager::AddTaskList(Task * _firstList, Task * _addTask)
 {
 	Task* currentTask = _firstList;

@@ -1,10 +1,10 @@
 #pragma once
 
-#include"../NonAnimObject.h"
+#include"../StaticMeshObject.h"
 #include"../../Singleton/Singleton.h"
 
 //基本図形モデルオブジェクトクラス
-class Goal : public NonAnimObject,public Singleton<Goal> {
+class Goal : public StaticMeshObject,public Singleton<Goal> {
 public:
 	friend class Singleton<Goal>;
 private:

@@ -25,7 +25,7 @@
     <ClInclude Include="Effect\EffectCollection.h" />
     <ClInclude Include="GameComponent\Collider.h" />
     <ClInclude Include="GameComponent\Transform.h" />
-    <ClInclude Include="Game\AnimObject.h" />
+    <ClInclude Include="Game\SkeletalMeshObject.h" />
     <ClInclude Include="Game\Arrow.h" />
     <ClInclude Include="Game\Camera.h" />
     <ClInclude Include="Game\CharacterBase\CharacterBase.h" />
@@ -63,7 +63,7 @@
     <ClInclude Include="Game\GameManager\State\GameTestState.h" />
     <ClInclude Include="Game\GameManager\State\OPState.h" />
     <ClInclude Include="Game\GameManager\State\TitleState.h" />
-    <ClInclude Include="Game\NonAnimObject.h" />
+    <ClInclude Include="Game\StaticMeshObject.h" />
     <ClInclude Include="Game\Object\Entrance.h" />
     <ClInclude Include="Game\Object\Goal.h" />
     <ClInclude Include="Game\Player\Player.h" />
@@ -116,7 +116,7 @@
     <ClCompile Include="Effect\EffectCollection.cpp" />
     <ClCompile Include="GameComponent\Collider.cpp" />
     <ClCompile Include="GameComponent\Transform.cpp" />
-    <ClCompile Include="Game\AnimObject.cpp" />
+    <ClCompile Include="Game\SkeletalMeshObject.cpp" />
     <ClCompile Include="Game\Arrow.cpp" />
     <ClCompile Include="Game\Camera.cpp" />
     <ClCompile Include="Game\CharacterBase\CharacterBase.cpp" />
@@ -154,7 +154,7 @@
     <ClCompile Include="Game\GameManager\State\GameTestState.cpp" />
     <ClCompile Include="Game\GameManager\State\OPState.cpp" />
     <ClCompile Include="Game\GameManager\State\TitleState.cpp" />
-    <ClCompile Include="Game\NonAnimObject.cpp" />
+    <ClCompile Include="Game\StaticMeshObject.cpp" />
     <ClCompile Include="Game\Geometry.cpp" />
     <ClCompile Include="Game\GUI.cpp" />
     <ClCompile Include="Game\Map.cpp" />

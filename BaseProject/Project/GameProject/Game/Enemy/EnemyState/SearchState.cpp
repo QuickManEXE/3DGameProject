@@ -1,6 +1,6 @@
 #include "SearchState.h"
 #include"../../Player/Player.h"
-#include"../../NonAnimObject.h"
+#include"../../StaticMeshObject.h"
 #include"../../../SoundResource.h"
 
 SearchState::SearchState(Enemy* owner) : State(owner)
@@ -71,7 +71,7 @@ void SearchState::Search()
 
 				if (c->GetPriority() == CollisionPriority::eCol_Field) {
 
-					if (NonAnimObject* g = dynamic_cast<NonAnimObject*> (c->GetTask())) {
+					if (StaticMeshObject* g = dynamic_cast<StaticMeshObject*> (c->GetTask())) {
 
 						if (CCollision::CollisionShpere(g->m_Transform.position, 0,
 							owner->m_Transform.position, 10.0f)) {

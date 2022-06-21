@@ -2,7 +2,7 @@
 #include "../CharacterBase/CharacterBase.h"
 #include"../Dijkstra/Dijkstra.h"
 #include"../../StateMachine/StateAI.h"
-#include"../NonAnimObject.h"
+#include"../StaticMeshObject.h"
 #include"../Arrow.h"
 
 

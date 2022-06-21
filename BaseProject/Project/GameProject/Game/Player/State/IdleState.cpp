@@ -1,5 +1,5 @@
 #include "IdleState.h"
-#include"../../NonAnimObject.h"
+#include"../../StaticMeshObject.h"
 #include"../../RopeConnectPoint.h"
 #include"../../Rope/Rope.h"
 

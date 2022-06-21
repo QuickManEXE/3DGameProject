@@ -4,7 +4,7 @@
 #include"../GameManager/GameManager.h"
 
 Goal::Goal():
-	NonAnimObject(UpdatePriority::eUp_Field, StarterAsset::Cone, RenderPriority::eRd_Field)
+	StaticMeshObject(UpdatePriority::eUp_Field,"Goal", StarterAsset::Cone, RenderPriority::eRd_Field)
 {
 	m_Col.RegistCollision(CollisionTask::eLayer_Game, this, (CollisionFunc)&Goal::CollisionCheck, CollisionPriority::eCol_Field,"Goal");
 

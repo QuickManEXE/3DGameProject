@@ -1,5 +1,5 @@
 #include "Camera.h"
-#include"NonAnimObject.h"
+#include"StaticMeshObject.h"
 
 Camera* Camera::mp_instance = nullptr;
 
@@ -42,7 +42,7 @@ void Camera::CollisionCheck(CollisionTask* task)
 {
 	if (task->GetPriority() != CollisionPriority::eCol_Field)return;
 
-	if (NonAnimObject* b = dynamic_cast<NonAnimObject*> (task->GetTask())) {
+	if (StaticMeshObject* b = dynamic_cast<StaticMeshObject*> (task->GetTask())) {
 
 
 		CVector3D cam_pos = CCamera::GetCurrent()->GetPos();

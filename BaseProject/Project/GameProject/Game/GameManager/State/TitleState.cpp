@@ -3,8 +3,8 @@
 #include"../../../Effect/Effect2D.h"
 #include"../../SkyBox.h"
 #include"../../GUI.h"
-#include"../../AnimObject.h"
-#include"../../NonAnimObject.h"
+#include"../../SkeletalMeshObject.h"
+#include"../../StaticMeshObject.h"
 
 //タイトルのステート
 TitleState::TitleState(GameManager* owner) : State(owner)
@@ -31,13 +31,13 @@ void TitleState::Enter()
 
 	new SkyBox();
 
-	NonAnimObject* field = new NonAnimObject( UpdatePriority::eUp_Field,"OpeningMountain",RenderPriority::eRd_Field);
+	StaticMeshObject* field = new StaticMeshObject(UpdatePriority::eUp_Field,"OpeningMountain", "OpeningMountain", RenderPriority::eRd_Field);
 	field->SetTransform(Transform(CVector3D::zero, CVector3D::zero, CVector3D::one));
 
-	AnimObject* player = new AnimObject(UpdatePriority::eUp_Player,"OpeningPlayer",RenderPriority::eRd_Player);
+	SkeletalMeshObject* player = new SkeletalMeshObject(UpdatePriority::eUp_Player, "OpeningPlayer", "OpeningPlayer",RenderPriority::eRd_Player);
 	player->SetTransform(Transform(CVector3D(1.540770, 3.940763, -12.363358), CVector3D(-0.064602, 0.270000, 0.000000), CVector3D(0.01f, 0.01f, 0.01f)));
 	
-	NonAnimObject* map = new NonAnimObject(UpdatePriority::eUp_Character,"TreasureMap",RenderPriority::eRd_Charactor);
+	StaticMeshObject* map = new StaticMeshObject(UpdatePriority::eUp_Character, "TreasureMap", "TreasureMap",RenderPriority::eRd_Charactor);
 	
 	map->SetTransform(Transform(CVector3D(5.077944, 5.053736, -11.395449), CVector3D(-0.114602, 0.140000, 0.000000), CVector3D(0.15f, 0.15f, 0.15f)));
 	map->SetParent(player->GetModel(), 13);

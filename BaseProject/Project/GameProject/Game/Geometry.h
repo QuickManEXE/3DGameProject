@@ -1,9 +1,9 @@
 #pragma once
-#include"NonAnimObject.h"
+#include"StaticMeshObject.h"
 #include"../StarterAsset.h"
 
 //基本図形モデルオブジェクトクラス
-class Geometry : public NonAnimObject {
+class Geometry : public StaticMeshObject {
 private:
 
 	CollisionTask m_Col;

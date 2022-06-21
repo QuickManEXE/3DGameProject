@@ -36,4 +36,6 @@ public:
 	void RenderALLAABB();
 
 	void ChoiceEvent(int grid_num);
+
+	void RemoveEvents();
 };

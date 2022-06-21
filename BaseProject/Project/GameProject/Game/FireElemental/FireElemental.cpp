@@ -141,7 +141,7 @@ bool FireElemental::SearchPlayer()
 
 				if (c->GetPriority() == CollisionPriority::eCol_Field) {
 
-					if (NonAnimObject* g = dynamic_cast<NonAnimObject*> (c->GetTask())) {
+					if (StaticMeshObject* g = dynamic_cast<StaticMeshObject*> (c->GetTask())) {
 
 						if (CCollision::CollisionShpere(g->m_Transform.position, 0,
 							m_Transform.position, 10.0f)) {
@@ -244,7 +244,7 @@ void FireElemental::GameObjectCollisionCheck(CollisionTask* task)
 	{
 		//静的なオブジェクトとの判定
 	case  CollisionPriority::eCol_Field:
-		if (NonAnimObject* b = dynamic_cast<NonAnimObject*> (task->GetTask())) {
+		if (StaticMeshObject* b = dynamic_cast<StaticMeshObject*> (task->GetTask())) {
 
 			CVector3D d = b->m_Transform.position - m_Transform.position;
 

@@ -1,22 +1,29 @@
 #pragma once
 
-#include"../NonAnimObject.h"
+#include"../StaticMeshObject.h"
 #include"../../Singleton/Singleton.h"
 
 //基本図形モデルオブジェクトクラス
-class Entrance : public NonAnimObject{
+class Entrance : public StaticMeshObject{
 public:
 	static std::vector<Entrance*> m_entrances;
 	
 	int entrance_num;
 private:
+
+	enum {
+		left_door,
+		right_door,
+		max_count,
+	};
+
 	bool m_is_open;//開くかどうか
 
-	CModelObj m_door1;
-	CModelObj m_door2;//素材
+	CModelObj m_door;
 
-	Transform m_door1_transform;
-	Transform m_door2_transform;
+	Transform m_door_transform[max_count];
+
+	CMatrix m_door_matrix[max_count];
 
 	CollisionTask m_Col;
 

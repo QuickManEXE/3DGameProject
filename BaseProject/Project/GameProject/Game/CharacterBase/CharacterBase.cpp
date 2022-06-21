@@ -1,8 +1,8 @@
 #include"CharacterBase.h"
-#include"../NonAnimObject.h"
+#include"../StaticMeshObject.h"
 
-CharacterBase::CharacterBase(UpdatePriority _updatePriority,const char* model_name, RenderPriority _renderPriority):
-	AnimObject(_updatePriority,model_name,_renderPriority)
+CharacterBase::CharacterBase(UpdatePriority _updatePriority, const char* _name, const char* model_name, RenderPriority _renderPriority):
+	SkeletalMeshObject(_updatePriority,_name,model_name,_renderPriority)
 {
 
 }
@@ -70,7 +70,7 @@ void CharacterBase::CollisionField(CollisionTask* _task)
 {
 	if (_task->GetPriority() != CollisionPriority::eCol_Field)return;
 
-	if (NonAnimObject* b = dynamic_cast<NonAnimObject*> (_task->GetTask())) {
+	if (StaticMeshObject* b = dynamic_cast<StaticMeshObject*> (_task->GetTask())) {
 
 		CVector3D d = b->m_Transform.position - m_Transform.position;
 		if (d.Length() > b->GetModel().GetMax().Length())return;
