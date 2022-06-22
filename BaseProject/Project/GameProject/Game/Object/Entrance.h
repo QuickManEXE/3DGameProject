@@ -19,6 +19,8 @@ private:
 
 	bool m_is_open;//ŠJ‚­‚©‚Ç‚¤‚©
 
+	bool m_is_block;
+
 	CModelObj m_door;
 
 	Transform m_door_transform[max_count];
@@ -28,9 +30,24 @@ private:
 	CollisionTask m_Col;
 
 	float m_rad;
+
+
+	CVector3D target_move;
+
+	CVector3D target_pos;
+
+	float time;
+
+	CVector3D origin_pos;
+
+	float m_block_rad;
 public:
-	Entrance(int entrance_num);
+	Entrance(int entrance_num,const Transform& _transform);
 	void Update()override;
 	void Render()override;
 	void CollisionCheck(CollisionTask* _task);
+	void OpenEntrance();
+	void SetIsBlock(bool _is_block) {
+		m_is_block = _is_block;
+	}
 };

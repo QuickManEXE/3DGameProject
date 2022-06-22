@@ -35,7 +35,7 @@ void EnemyBattleEvent::Enter()
 
 	for (auto ent : Entrance::m_entrances) {
 
-		ent->m_Transform.rotation.y += DtoR(90);
+		ent->SetIsBlock(true);
 
 	}
 
@@ -53,7 +53,7 @@ void EnemyBattleEvent::Exit()
 {
 	for (auto ent : Entrance::m_entrances) {
 
-		ent->m_Transform.rotation.y -= DtoR(90);
+		ent->SetIsBlock(false);
 
 	}
 

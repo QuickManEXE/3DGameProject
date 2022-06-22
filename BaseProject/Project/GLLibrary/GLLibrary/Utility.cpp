@@ -479,7 +479,7 @@ const CVector3D& Utility::RandVec3D(float min,float max){
 
 }
 
-/*
+
 bool Utility::CollisionSphere(const CVector3D& a_center,float a_rad,
 	const CVector3D& b_center, float b_rad, CVector3D* push_back)
 {
@@ -537,7 +537,7 @@ bool Utility::CollisionCapsuleSphere(const CVector3D& c_top, const CVector3D& c_
 
 	}else return false;
 }
-
+/*
 bool Utility::CollisionCapsule(const CVector3D& a_top, const CVector3D& a_bottom,float a_rad,
 	const CVector3D& b_top, const CVector3D& b_bottom,float b_rad,CVector3D* push_back)
 {

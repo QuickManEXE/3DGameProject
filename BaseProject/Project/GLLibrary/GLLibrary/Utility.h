@@ -133,16 +133,16 @@ namespace Utility {
 	const CVector3D& RandVec3D(float min, float max);
 
 	//“–‚½‚è”»’è
-	/*
+	
 	//‰~“¯Žm‚Ì”»’èB‚©‚çA‚Ö‚Ì—Í‚ð•Ô‚·
 	bool CollisionSphere(const CVector3D& a_center, float a_rad,
 		const CVector3D& b_center, float b_rad, CVector3D* push_back);
 
-
+	
 	bool CollisionCapsuleSphere(const CVector3D& c_top,const CVector3D& c_bottom,float c_rad,
 		const CVector3D& s_center, float s_rad, CVector3D* push_back);
 
-
+/*
 	//ƒJƒvƒZƒ‹“¯Žm‚Ì”»’èB‚©‚çA‚Ö‚Ì—Í‚ð•Ô‚·
 	bool CollisionCapsule(const CVector3D& a_top, const CVector3D& a_bottom, float a_rad,
 		const CVector3D& b_top, const CVector3D& b_bottom, float b_rad, CVector3D* push_back);

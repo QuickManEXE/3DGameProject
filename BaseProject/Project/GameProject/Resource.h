@@ -65,7 +65,10 @@ namespace Resource {
 		ADD_RESOURCE("OpeningMountain", CModel::CreateModel("Field/Mountain/OpeningMountain.obj", 100, 10, 100));
 		ADD_RESOURCE("Cave", CModel::CreateModel("Field/Mountain/Cave.obj", 100, 10, 100));
 
-		ADD_RESOURCE("Treasure", CModel::CreateModel("Treasure/Treasure.obj"));
+		//è¨ìπãÔ
+		ADD_RESOURCE("Chest_Top", CModel::CreateModel("Prop/Chest_Top.obj"));
+		ADD_RESOURCE("Chest_Bottom", CModel::CreateModel("Prop/Chest_Bottom.obj"));
+		
 
 		ADD_RESOURCE("B222", CModel::CreateModel("Block/Block2_2_2.obj"));
 		ADD_RESOURCE("B224", CModel::CreateModel("Block/Block2_2_4.obj"));

@@ -22,6 +22,10 @@ public:
 		GameOverState,
 		GameTestState,//デバッグ用
 		BeginGameState,
+		TutorialState,//ゲーム説明シーン
+		InitGameState,//ゲームの初期化シーン
+		ExecuteState,//ゲーム中のシーン
+		EndGameState,//ゲーム終了のシーン
 	};
 
 	StateAI<GameManager, GameManagerState> m_StateAI;

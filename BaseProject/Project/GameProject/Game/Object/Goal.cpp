@@ -24,7 +24,7 @@ void Goal::CollisionCheck(CollisionTask* _task)
 
 			if (CInput::GetState(0, CInput::ePush, CInput::eButton1)){
 				printf("ÉSÅ[Éã");
-				GameManager::Instance().m_StateAI.ChangeState(GameManager::GameManagerState::BeginGameState);	
+				GameManager::Instance().m_StateAI.ChangeState(GameManager::GameManagerState::ExecuteState);	
 			}
 		}
 	}

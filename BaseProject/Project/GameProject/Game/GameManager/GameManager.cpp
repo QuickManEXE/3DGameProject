@@ -8,6 +8,10 @@
 #include"State/GameOverState.h"
 #include"State/GameTestState.h"
 #include"State/BeginGameState.h"
+#include"State/TutorialState.h"
+#include"State/InitGameState.h"
+#include"State/ExecuteState.h"
+#include"State/EndGameState.h"
 
 //GameManager* GameManager::mp_Instance = nullptr;
 
@@ -31,6 +35,10 @@ GameManager::GameManager() : Base(UpdatePriority::eUp_Manager,"GameManager")
 	m_StateAI.state_vector.push_back(new GameOverState(this));
 	m_StateAI.state_vector.push_back(new GameTestState(this));
 	m_StateAI.state_vector.push_back(new BeginGameState(this));
+	m_StateAI.state_vector.push_back(new TutorialState(this));
+	m_StateAI.state_vector.push_back(new InitGameState(this));
+	m_StateAI.state_vector.push_back(new ExecuteState(this));
+	m_StateAI.state_vector.push_back(new EndGameState(this));
 
 	m_StateAI.stateMachine = new StateMachine<GameManager>;
 
@@ -56,7 +64,7 @@ void GameManager::CollisionCheck(CollisionTask* task)
 void GameManager::Destory()
 {
 	//消すもの
-	//ドア
+	//敵
 	auto tasks = TaskManager::GetInstance()->FindTasks("Enemy");
 	for (auto task : tasks) {
 		task->SetKill();
@@ -67,12 +75,22 @@ void GameManager::Destory()
 		task->SetKill();
 	}
 
-	//敵
+	//ドア
 	tasks = TaskManager::GetInstance()->FindTasks("Entrance");
 	for (auto task : tasks) {
 		task->SetKill();
 	}
 
-	//
+	//アイテム
+	tasks = TaskManager::GetInstance()->FindTasks("Item");
+	for (auto task : tasks) {
+		task->SetKill();
+	}
 
+
+	//アイテムチェスト
+	tasks = TaskManager::GetInstance()->FindTasks("ItemChest");
+	for (auto task : tasks) {
+		task->SetKill();
+	}
 }

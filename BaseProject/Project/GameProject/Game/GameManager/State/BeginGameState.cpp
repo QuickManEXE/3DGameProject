@@ -70,8 +70,8 @@ void BeginGameState::Enter()
 		}
 		rot.y += DtoR(90);
 
-		Entrance* e = new Entrance(entrance.parent_room_num);
-		e->m_Transform = Transform(pos * TILE_SIZE, rot, CVector3D(1, 1, 1));
+		Entrance* e = new Entrance(entrance.parent_room_num,Transform(pos * TILE_SIZE, rot, CVector3D(1, 1, 1)));
+		
 	}
 
 	//イベントデータの登録

@@ -37,12 +37,13 @@ GUI::GUI() :Base(UpdatePriority::eUp_HUD, "UI"), m_text("ÇµÇÂÇ©Ç´Ç§ÇΩÇ∞Åiñ≥óøî≈Å
 
 void GUI::Update()
 {
+	if (!GameManager::Instance().m_StateAI.IsCurrentState(GameManager::GameManagerState::ExecuteState))return;
 	UpdateMiniMap(Map::Instance().GetDungeonData());
 }
 
 void GUI::Draw()
 {
-
+	if (!GameManager::Instance().m_StateAI.IsCurrentState(GameManager::GameManagerState::ExecuteState))return;
 	DrawHP();
 	DrawIcon();
 	DrawAimTarget();

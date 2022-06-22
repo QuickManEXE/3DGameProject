@@ -26,9 +26,15 @@ private:
 	float m_rad;
 
 	CCapsule m_capsule;
+
+	CVector3D target_rotation;
+
+	float time;
 public:
 	ItemChest(Transform _transform);
 	void Update()override;
 	void Render()override;
 	void CollisionCheck(CollisionTask* _task);
+	void OpenChest();
+
 };

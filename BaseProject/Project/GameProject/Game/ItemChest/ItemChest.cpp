@@ -3,7 +3,7 @@
 #include"../CharacterBase/CharacterBase.h"
 
 ItemChest::ItemChest(Transform _transform) :
-	StaticMeshObject(UpdatePriority::eUp_Field, "ItemChest", StarterAsset::Cylinder, RenderPriority::eRd_Field)
+	StaticMeshObject(UpdatePriority::eUp_Field, "ItemChest", StarterAsset::Cylinder, RenderPriority::eRd_Field),m_is_open(false)
 {
 	m_Transform = _transform;
 
@@ -11,14 +11,16 @@ ItemChest::ItemChest(Transform _transform) :
 
 	m_rad = 1.5f;
 
-	m_model[container] = COPY_RESOURCE(StarterAsset::Cube, CModelObj);
-	m_model[lid] = COPY_RESOURCE(StarterAsset::Cone, CModelObj);
+	m_model[container] = COPY_RESOURCE("Chest_Bottom", CModelObj);
+	m_model[lid] = COPY_RESOURCE("Chest_Top", CModelObj);
 
 	m_chest_transform[container].position = CVector3D(0, 0, 0);
-	m_chest_transform[lid].position = CVector3D(0, 3, 0);
+	m_chest_transform[lid].position = CVector3D(0, 0, 0);
 
 	//m_capsule.Set(m_chest_transform[container].position + CVector3D(0, 1, 0), m_chest_transform[container].position + CVector3D(0, 1, 0));
 	m_capsule.SetRad(m_rad);
+	
+	target_rotation = CVector3D(DtoR(-45), 0, 0);
 }
 
 void ItemChest::Update()
@@ -38,6 +40,7 @@ void ItemChest::Update()
 
 	m_capsule.Set(m_chest_matrix[container].GetPosition(), m_chest_matrix[container].GetPosition() + CVector3D(0, 1, 0));
 
+	OpenChest();
 }
 
 void ItemChest::Render()
@@ -66,7 +69,30 @@ void ItemChest::CollisionCheck(CollisionTask* _task)
 
 			c->m_Transform.position += dir * s;
 
+			if (CCollision::CollisionCapsuleShpere(c->m_Capsule.m_start, c->m_Capsule.m_end, c->m_Capsule.m_rad, m_Transform.position, m_rad)) {
+
+				if (CInput::GetState(0, CInput::ePush, CInput::eButton1)) {
+					printf("ŠJ‚¯‚Ü‚µ‚½");
+					
+					m_is_open = true;
+
+					time = 0;
+				}
+			}
 		}
 
+	}
+}
+
+void ItemChest::OpenChest()
+{
+	if (m_is_open) {
+
+		if (time <= 1) {
+			time += DELTA;
+
+			m_chest_transform[lid].rotation = m_chest_transform[lid].rotation * (1 - time) +
+				target_rotation * time;
+		}
 	}
 }

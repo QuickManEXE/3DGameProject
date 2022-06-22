@@ -262,6 +262,18 @@
     <ClInclude Include="Game\ItemChest\ItemChest.h">
       <Filter>Game\ItemChest</Filter>
     </ClInclude>
+    <ClInclude Include="Game\GameManager\State\TutorialState.h">
+      <Filter>Game\GameManager\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManager\State\InitGameState.h">
+      <Filter>Game\GameManager\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManager\State\ExecuteState.h">
+      <Filter>Game\GameManager\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameManager\State\EndGameState.h">
+      <Filter>Game\GameManager\State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TaskSystem\CollisionTask.cpp">
@@ -495,6 +507,18 @@
     </ClCompile>
     <ClCompile Include="Game\ItemChest\ItemChest.cpp">
       <Filter>Game\ItemChest</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\State\TutorialState.cpp">
+      <Filter>Game\GameManager\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\State\InitGameState.cpp">
+      <Filter>Game\GameManager\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\State\ExecuteState.cpp">
+      <Filter>Game\GameManager\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameManager\State\EndGameState.cpp">
+      <Filter>Game\GameManager\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
