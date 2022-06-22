@@ -39,12 +39,18 @@ void GameTestState::Enter()
 	//プレイヤーをランダムな位置に配置
 	CVector3D player_pos;
 
-	if (DungeonMarker::GetRandomDungeonPos(&Map::Instance().GetDungeonData(), &player_pos, DungeonMarker::TileType::room_id)) {
+	if (DungeonMarker::GetRandomDungeonRoomPos(&Map::Instance().GetDungeonData(), &player_pos, Map::Instance().GetDungeonData().start_room_num)) {
+		printf("%f %f %f", player_pos.x, player_pos.y, player_pos.z);
+		CVector3D pos(player_pos.x * TILE_SIZE, 0, player_pos.z * TILE_SIZE);
+
+		Player::GetInstance()->m_Transform.position = pos;
+	};
+	/*if (DungeonMarker::GetRandomDungeonPos(&Map::Instance().GetDungeonData(), &player_pos, DungeonMarker::TileType::room_id)) {
 		printf("%f %f %f", player_pos.x, player_pos.y, player_pos.z);
 		CVector3D pos(player_pos.x * TILE_SIZE, 0, player_pos.z * TILE_SIZE);
 		
 		Player::GetInstance()->m_Transform.position = pos;
-	};
+	};*/
 
 	//UIインスタンスの生成
 	GUI::Build();
@@ -54,12 +60,18 @@ void GameTestState::Enter()
 	//ゴールの生成
 	Goal::Build();
 
-	if (DungeonMarker::GetRandomDungeonPos(&Map::Instance().GetDungeonData(), &player_pos, DungeonMarker::TileType::room_id)) {
+	if (DungeonMarker::GetRandomDungeonRoomPos(&Map::Instance().GetDungeonData(), &player_pos, Map::Instance().GetDungeonData().goal_room_num)) {
+		printf("%f %f %f", player_pos.x, player_pos.y, player_pos.z);
+
+		Goal::Instance().m_Transform = Transform(player_pos * TILE_SIZE + CVector3D(0, -1, 0), CVector3D::zero, CVector3D::one);
+
+	};
+	/*if (DungeonMarker::GetRandomDungeonPos(&Map::Instance().GetDungeonData(), &player_pos, DungeonMarker::TileType::room_id)) {
 		printf("%f %f %f", player_pos.x, player_pos.y, player_pos.z);
 		
 		Goal::Instance().m_Transform = Transform(player_pos * TILE_SIZE + CVector3D(0,-1,0), CVector3D::zero, CVector3D::one);
 
-	};
+	};*/
 
 	//扉の出現
 	DungeonMarker::DungeonData d_data = Map::Instance().GetDungeonData();

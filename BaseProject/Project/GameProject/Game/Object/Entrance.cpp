@@ -50,7 +50,7 @@ void Entrance::CollisionCheck(CollisionTask* _task)
 	if (CharacterBase* c = dynamic_cast<CharacterBase*> (_task->GetTask())) {
 
 		CVector3D d = c->m_Transform.position - m_Transform.position;
-		//if (d.Length() > m_door.GetMax().Length())return;
+		if (d.Length() > m_door.GetMax().Length())return;
 
 		//このキャラクターとオブジェクトとの当たり判定
 		{

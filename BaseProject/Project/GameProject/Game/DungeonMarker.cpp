@@ -55,6 +55,8 @@ void DungeonMarker::CreateDungeon(DungeonData* _data, const CVector2D& _dungeon_
 
 	ConnectEntraceToRoom(&data);
 
+	SetStartAndGoalRoom(data);
+
 	printf("\nダンジョンの生成が終わりました\n");
 
 	DrawDungeon(&data);
@@ -402,6 +404,28 @@ bool DungeonMarker::GetRandomDungeonPos(DungeonData* _data, CVector3D* _p_pos, T
 	return true;
 }
 
+bool DungeonMarker::GetRandomDungeonRoomPos(DungeonData* _data, CVector3D* _p_pos, int _room_num)
+{
+	if (!_p_pos)return false;
+	if (!_data)return false;
+
+	DungeonMarker::RoomDatas2 rooms = _data->m_rooms2;
+	int index = max(0,min(rooms.size(),_room_num));
+	auto room = rooms[index];
+
+	auto positions = GetRoomPosition(room.room_rect);
+
+	if (positions.size() <= 0)return false;
+
+	index = Utility::Rand(0, (int)positions.size());
+	
+	CVector3D pos = positions[index];
+
+	(*_p_pos) = pos;
+
+	return true;
+}
+
 int DungeonMarker::GetRectGridNum(const CRect& _rect)
 {
 	CRect rect = _rect;
@@ -427,6 +451,30 @@ std::vector<CVector3D> DungeonMarker::GetRoomPosition(const CRect& _rect)
 	}
 	
 	return positions;
+}
+
+void DungeonMarker::SetStartAndGoalRoom(DungeonData& _data)
+{
+
+	DungeonData& d_data = _data;
+
+	RoomDatas2 rooms = d_data.m_rooms2;
+
+	int max = rooms.size();
+
+	int start_room_index = Utility::Rand(0, max);
+	//スタートをきめる
+	d_data.start_room_num = start_room_index;
+
+	int goal_room_index;
+	do {
+		goal_room_index = Utility::Rand(0, max);
+	} while (start_room_index == goal_room_index);
+
+	//ゴールを決める
+	d_data.goal_room_num = goal_room_index;
+
+	
 }
 
 void DungeonMarker::DrawRoomIndex()

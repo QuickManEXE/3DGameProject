@@ -25,6 +25,8 @@
     <ClInclude Include="Effect\EffectCollection.h" />
     <ClInclude Include="GameComponent\Collider.h" />
     <ClInclude Include="GameComponent\Transform.h" />
+    <ClInclude Include="Game\ItemChest\ItemChest.h" />
+    <ClInclude Include="Game\Item\ItemBase.h" />
     <ClInclude Include="Game\SkeletalMeshObject.h" />
     <ClInclude Include="Game\Arrow.h" />
     <ClInclude Include="Game\Camera.h" />
@@ -116,6 +118,8 @@
     <ClCompile Include="Effect\EffectCollection.cpp" />
     <ClCompile Include="GameComponent\Collider.cpp" />
     <ClCompile Include="GameComponent\Transform.cpp" />
+    <ClCompile Include="Game\ItemChest\ItemChest.cpp" />
+    <ClCompile Include="Game\Item\ItemBase.cpp" />
     <ClCompile Include="Game\SkeletalMeshObject.cpp" />
     <ClCompile Include="Game\Arrow.cpp" />
     <ClCompile Include="Game\Camera.cpp" />

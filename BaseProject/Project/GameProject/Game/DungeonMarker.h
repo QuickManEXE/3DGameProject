@@ -59,6 +59,8 @@ public:
 		RoomData m_room;//部屋の情報
 		RoomDatas2 m_rooms2;
 		EntranceDatas m_entrances;//入口の情報
+		int start_room_num;//開始時のプレイヤーのスタートする部屋の番号
+		int goal_room_num;//ゴールのある部屋の番号
 		DungeonData() {
 			m_room.reserve(100);//あらかじめ100個容量を予約しておく
 			m_rooms2.reserve(100);
@@ -72,11 +74,18 @@ public:
 
 	//条件に沿ったポイントを返します
 	static bool GetRandomDungeonPos(DungeonData* _data,CVector3D* _p_pos, TileType _tile_type);
+	//条件に沿ったポイントを返します　特定のルームのランダムな位置
+	static bool GetRandomDungeonRoomPos(DungeonData* _data, CVector3D* _p_pos, int _room_num);
 
 	//四角のマスの数を返します
 	static int GetRectGridNum(const CRect& _rect);
 
+	//部屋を構成する座標を返します
 	static std::vector<CVector3D> GetRoomPosition(const CRect& _rect);
+
+	//スタートする部屋とゴールする部屋を設定します
+	static void SetStartAndGoalRoom(DungeonData& _data);
+
 private:
 	//ダンジョンの初期化
 	static void DungeonInit(DungeonData* data, int width, int height, TileType init_tile);

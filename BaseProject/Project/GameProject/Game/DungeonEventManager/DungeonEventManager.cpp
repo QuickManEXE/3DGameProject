@@ -56,6 +56,8 @@ void DungeonEventManager::SetEvent(DungeonMarker::DungeonData _d_data,float _til
 	
 	for (int i = 0; i < rooms2.size() ; i++) {
 
+		if ((i == d_data.start_room_num) || (i == d_data.goal_room_num))continue;
+
 		const DungeonMarker::RoomRect room = rooms2[i].room_rect;
 		int left = room.m_left;
 		int right = room.m_right-1;
