@@ -17,13 +17,14 @@ ExecuteState::ExecuteState(GameManager* owner) : State(owner)
 void ExecuteState::Enter()
 {
 
+	
 	owner->m_CurrentDungeonNum++;
 
 	//ゲームクリアかどうか
 	if (owner->m_CurrentDungeonNum > owner->m_ClearDungeonNum) {
 
 		owner->m_StateAI.ChangeState(GameManager::GameManagerState::GameClearState);
-
+		return;
 	}
 
 	//ダンジョンデータの生成
@@ -59,6 +60,8 @@ void ExecuteState::Enter()
 	//時間の設定
 	owner->m_current_game_time = 60.0f * 5.0f;
 	owner->m_time_limit = 60.0f * 5.0f;
+
+	SOUND("BGM_LostPlace")->Play(); 
 
 }
 
