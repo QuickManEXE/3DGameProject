@@ -15,6 +15,8 @@ private:
 
 	bool m_is_open;//開くかどうか
 
+	bool m_is_item_drop;//アイテムを排出したかどうか
+
 	CModelObj m_model[max_count];
 
 	Transform m_chest_transform[max_count];
@@ -23,7 +25,9 @@ private:
 
 	CollisionTask m_Col;
 
-	float m_rad;
+	float m_rad;//当たり判定の範囲
+
+	float m_open_rad;//入力受付の当たり判定の範囲
 
 	CCapsule m_capsule;
 

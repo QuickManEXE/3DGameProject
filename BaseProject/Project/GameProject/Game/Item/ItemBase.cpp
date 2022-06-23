@@ -1,5 +1,6 @@
 #include "ItemBase.h"
 #include"../CharacterBase/CharacterBase.h"
+#include"../../Effect/EffectCollection.h"
 
 
 ItemBase::ItemBase(int _item_id, const Transform& transform, const char* model_name) :
@@ -15,7 +16,7 @@ ItemBase::ItemBase(int _item_id, const Transform& transform, const char* model_n
 
 	m_rad = 1.0f;
 
-
+	EffectCollection::SmokeWave3D(m_Transform.position, &m_Transform.position);
 }
 
 void ItemBase::CollisionCheck(CollisionTask* _task)

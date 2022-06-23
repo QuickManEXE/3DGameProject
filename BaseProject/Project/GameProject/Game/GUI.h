@@ -44,4 +44,5 @@ public:
 	void DrawMiniMap(DungeonMarker::DungeonData _DungeonData_For_MiniMap);
 	void UpdateMiniMap(DungeonMarker::DungeonData _DungeonData_For_MiniMap);
 	void DrawGameInfo();
+	void DrawTimeLimit();
 };

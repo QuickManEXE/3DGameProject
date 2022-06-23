@@ -35,8 +35,7 @@ void InitGameState::Enter()
 	
 	//プレイヤーの生成
 	new Player(Transform(CVector3D(0, 0, 0), CVector3D(0, DtoR(0), 0), CVector3D(0.01f, 0.01f, 0.01f)), "Archer2");
-	//プレイヤーのステートを通常状態にする
-	Player::GetInstance()->m_StateAI.ChangeState(PlayerState::IdleState);
+	
 
 	Goal::Build();
 

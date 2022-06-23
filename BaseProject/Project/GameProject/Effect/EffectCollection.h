@@ -19,4 +19,6 @@ public:
 	static void SmokeWave3D(const CVector3D& pos, CVector3D* p_parent_pos = nullptr);
 	//地点に閃光が広がるエフェクト
 	static void LightSplash3D(const CVector3D& pos, CVector3D* p_parent_pos = nullptr);
+	//地点に円のエネルギーが広がるエフェクト
+	static void BulletSplash3D(const CVector3D& pos, CVector3D* p_parent_pos = nullptr);
 };

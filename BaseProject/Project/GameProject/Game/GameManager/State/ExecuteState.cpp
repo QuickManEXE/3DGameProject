@@ -29,6 +29,9 @@ void ExecuteState::Enter()
 	//ダンジョンデータの生成
 	Map::Instance().CreateDungeon(CVector2D(MAP_WIDTH, MAP_HEIGHT), CVector2D(4, 4), CVector2D(MAP_WIDTH / 2, MAP_HEIGHT / 2), 10);
 
+
+	//プレイヤーのステートを通常状態にする
+	Player::GetInstance()->m_StateAI.ChangeState(PlayerState::IdleState);
 	//プレイヤーをランダムな位置に配置
 	CVector3D player_pos;
 
@@ -41,7 +44,7 @@ void ExecuteState::Enter()
 	CVector3D goal_pos;
 	if (DungeonMarker::GetRandomDungeonRoomPos(&Map::Instance().GetDungeonData(), &goal_pos, Map::Instance().GetDungeonData().goal_room_num)) {
 
-		Goal::Instance().m_Transform = Transform(goal_pos * TILE_SIZE + CVector3D(0, -1, 0), CVector3D::zero, CVector3D::one);
+		Goal::Instance().m_Transform = Transform(goal_pos * TILE_SIZE + CVector3D(0, -TILE_SIZE/2.0f, 0), CVector3D::zero, CVector3D::one);
 	};
 
 	//扉の出現
@@ -53,11 +56,23 @@ void ExecuteState::Enter()
 	//イベントデータの登録
 	DungeonEventManager::Instance().SetEvent(Map::Instance().GetDungeonData(), TILE_SIZE);
 
+	//時間の設定
+	owner->m_current_game_time = 60.0f * 5.0f;
+	owner->m_time_limit = 60.0f * 5.0f;
+
 }
 
 void ExecuteState::Execute()
 {
 	DungeonEventManager::Instance().Run();
+
+	owner->m_current_game_time = max(0, owner->m_current_game_time - DELTA);
+
+	if (owner->m_current_game_time <= 0) {
+
+		owner->m_StateAI.ChangeState(GameManager::GameManagerState::GameOverState);
+
+	}
 }
 
 void ExecuteState::Exit()

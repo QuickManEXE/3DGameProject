@@ -46,6 +46,7 @@ namespace Resource {
 		ADD_RESOURCE("CircleR", CModel::CreateModel("Effect/CircleR.obj"));
 		ADD_RESOURCE("Smoke", CModel::CreateModel("Effect/Smoke.obj"));
 		ADD_RESOURCE("Slash", CModel::CreateModel("Effect/Slash.obj"));
+		ADD_RESOURCE("bulletA", CModel::CreateModel("Effect/bulletA.obj"));
 
 		//ìπãÔ
 		ADD_RESOURCE("Bow", CModel::CreateModel("Bow/Bow.obj"));
@@ -66,9 +67,13 @@ namespace Resource {
 		ADD_RESOURCE("Cave", CModel::CreateModel("Field/Mountain/Cave.obj", 100, 10, 100));
 
 		//è¨ìπãÔ
-		ADD_RESOURCE("Chest_Top", CModel::CreateModel("Prop/Chest_Top.obj"));
-		ADD_RESOURCE("Chest_Bottom", CModel::CreateModel("Prop/Chest_Bottom.obj"));
+		ADD_RESOURCE("Portal", CModel::CreateModel("Prop/Portal.obj"));
+		ADD_RESOURCE("Chest_Top", CModel::CreateModel("Prop/Chest_Top.obj"));//
+		ADD_RESOURCE("Chest_Bottom", CModel::CreateModel("Prop/Chest_Bottom.obj"));//
 		
+		//ÉAÉCÉeÉÄ
+		ADD_RESOURCE("Item_Heart", CModel::CreateModel("Item/Heart.obj"));//
+
 
 		ADD_RESOURCE("B222", CModel::CreateModel("Block/Block2_2_2.obj"));
 		ADD_RESOURCE("B224", CModel::CreateModel("Block/Block2_2_4.obj"));

@@ -23,11 +23,6 @@ void IdleState::Execute()
 		owner->m_StateAI.ChangeState(PlayerState::ArrowAimState);
 
 	}
-	//右クリックを長押しでワイヤーエイムモードに移行
-	if (CInput::GetState(0, CInput::eHold, CInput::eMouseR)&&owner->m_HookNum>0) {
-
-		owner->m_StateAI.ChangeState(PlayerState::WireAimState);
-	}
 
 	//もし地面に接していないのが続けば（ベクトルの大きさが一定となればジャンプする)
 	//走っているなら
@@ -114,9 +109,9 @@ void IdleState::CollisionCheck(CollisionTask* task)
 
 	owner->CollisionObject(task);
 
-	owner->HangCheck(task);
+	//owner->HangCheck(task);
 
 	owner->CollisionCharacter(task);
 
-	owner->CollisionIsJump(task);
+	//owner->CollisionIsJump(task);
 }

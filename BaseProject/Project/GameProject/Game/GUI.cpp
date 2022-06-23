@@ -50,6 +50,7 @@ void GUI::Draw()
 	DrawAimTarget2();
 	DrawMiniMap(m_DungeonData_For_MiniMap);
 	DrawGameInfo();
+	DrawTimeLimit();
 
 	CVector2D hook_pos(16 + 32, SCREEN_HEIGHT - 200);
 
@@ -229,7 +230,7 @@ void GUI::InitMiniMap(DungeonMarker::DungeonData _DungeonData_For_MiniMap)
 void GUI::DrawMiniMap(DungeonMarker::DungeonData _DungeonData_For_MiniMap)
 {
 	int size = 6;
-	CVector2D p(1000, 100);
+	CVector2D p(1100, 150);
 	for (int i = 0; i < MAP_HEIGHT; i++) {
 		for (int j = 0; j < MAP_WIDTH; j++) {
 			if (_DungeonData_For_MiniMap.m_tile[i][j] <= (int)DungeonMarker::TileType::inside_wall_id) {
@@ -297,4 +298,16 @@ void GUI::DrawGameInfo() {
 	m_text.Draw(1000, 20, 1, 0, 1, "ŠK:%d/%d", GameManager::Instance().m_CurrentDungeonNum,GameManager::Instance().m_ClearDungeonNum);
 	
 #endif // _DEBUG
+}
+
+void GUI::DrawTimeLimit()
+{
+
+	int second =  (int)GameManager::Instance().m_current_game_time % 60;
+	int  min = (int)GameManager::Instance().m_current_game_time / 60;
+
+	
+	m_text.Draw(1100, 50, 1, 0, 1, "TIME %d:%d",min,second);
+	m_text.Draw(1100, 100, 1, 0, 1, "ŠK: %d / %d", GameManager::Instance().m_CurrentDungeonNum, GameManager::Instance().m_ClearDungeonNum);
+
 }

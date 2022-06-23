@@ -75,3 +75,16 @@ void EffectCollection::LightSplash3D(const CVector3D& pos, CVector3D* p_parent_p
 
 }
 
+void EffectCollection::BulletSplash3D(const CVector3D& pos, CVector3D* p_parent_pos)
+{
+	new Effect3D("bulletA",
+		p_parent_pos,
+		pos,
+		CVector3D::zero,
+		CVector3D::zero,
+		CVector3D::zero,
+		CVector3D::zero,
+		0.0f, 0.5f, 0.0f, -0.5f, Effect3D::eBlendAlpha, true, true, 5.0f, 1.0f);
+
+}
+

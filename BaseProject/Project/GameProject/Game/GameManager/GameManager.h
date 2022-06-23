@@ -45,6 +45,13 @@ public:
 	int m_ClearDungeonNum;
 
 	DungeonEventManager m_event_manager;
+
+
+	//現在の時間
+	float m_current_game_time;
+	//ゲームのタイムリミット
+	float m_time_limit;
+
 public:
 	void Update();
 	void Render();
