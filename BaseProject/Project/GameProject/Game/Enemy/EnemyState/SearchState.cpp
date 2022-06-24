@@ -54,7 +54,7 @@ void SearchState::Search()
 	if (Utility::IsViewInside(view_pos, view_rot, target_pos,view_ang, length)) {
 	
 		//printf("視界内に入っています\n");
-		Utility::DrawLine(view_pos,target_pos, CVector4D(0, 1, 0, 1));
+		//Utility::DrawLine(view_pos,target_pos, CVector4D(0, 1, 0, 1));
 		//ターゲットとプレイヤーの視線の先に障害物がないか調べる
 
 		CVector3D dir = target_pos - view_pos;
@@ -95,7 +95,7 @@ void SearchState::Search()
 			}
 			
 			if (is_view) {
-				printf("視界の中にプレイヤーが見えている！\n");
+				//printf("視界の中にプレイヤーが見えている！\n");
 				owner->m_StateAI.ChangeState(EnemyState::BattleIdleState);
 
 				SOUND(SoundResource::SE_MonsterCry1.c_str())->Play3D(owner->m_Transform.position, owner->m_Transform.m_pos_vec);

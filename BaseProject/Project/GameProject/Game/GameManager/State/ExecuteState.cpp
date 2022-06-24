@@ -23,7 +23,7 @@ void ExecuteState::Enter()
 	//ƒQ[ƒ€ƒNƒŠƒA‚©‚Ç‚¤‚©
 	if (owner->m_CurrentDungeonNum > owner->m_ClearDungeonNum) {
 
-		owner->m_StateAI.ChangeState(GameManager::GameManagerState::GameClearState);
+		owner->m_StateAI.ChangeState(GameManager::GameManagerState::BossBattle);
 		return;
 	}
 

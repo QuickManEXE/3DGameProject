@@ -66,6 +66,8 @@ CharacterBase(UpdatePriority::eUp_Player,"Player",_modelName, RenderPriority::eR
 	
 	m_Param.SetParam("arm_height", 2.0f);
 
+	m_move_speed = 30.0f;
+
 
 	m_IsGround = false;
 
@@ -99,7 +101,12 @@ CharacterBase(UpdatePriority::eUp_Player,"Player",_modelName, RenderPriority::eR
 
 	m_HookRecoverTime = 15.0f;
 
-	m_HitPoint = 100;
+	//m_HitPoint = 100;
+	m_HitPoint_max = 100;
+	SetHitPoint(100);
+
+	SetAttackSpeed(1.0f);
+	SetMoveSpeed(30.0f);
 }
 
 void Player::Update()

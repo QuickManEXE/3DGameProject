@@ -47,7 +47,7 @@ void DungeonMarker::CreateDungeon(DungeonData* _data, const CVector2D& _dungeon_
 
 	DungeonInit(&data,_dungeon_size.x, _dungeon_size.y, TileType::outside_wall_id);
 
-	DrawRoomIndex();
+	//DrawRoomIndex();
 
 	CreateFirstRoom(&data,_first_room_size,_first_room_pos);
 
@@ -57,16 +57,16 @@ void DungeonMarker::CreateDungeon(DungeonData* _data, const CVector2D& _dungeon_
 
 	SetStartAndGoalRoom(data);
 
-	printf("\nダンジョンの生成が終わりました\n");
+	//printf("\nダンジョンの生成が終わりました\n");
 
-	DrawDungeon(&data);
+	//DrawDungeon(&data);
 
 	(*_data) = data;
 }
 
 void DungeonMarker::CreateFirstRoom(DungeonData* _data, const CVector2D& _first_room_size, const CVector2D& _first_room_pos)
 {
-	printf("\n\n\n");
+	//printf("\n\n\n");
 
 	TileData* t_data = &(_data->m_tile);
 	RoomData* r_data = &(_data->m_room);
@@ -77,7 +77,7 @@ void DungeonMarker::CreateFirstRoom(DungeonData* _data, const CVector2D& _first_
 	int dungeon_height = t_data->size();
 	int dungeon_width = (*t_data)[0].size();
 
-	printf("[タイルマップの大きさ]　幅＝%d　高さ＝%d\n", dungeon_width, dungeon_height);
+	//printf("[タイルマップの大きさ]　幅＝%d　高さ＝%d\n", dungeon_width, dungeon_height);
 
 	//今回のダンジョン作成方法
 	//フロア連結型
@@ -87,7 +87,7 @@ void DungeonMarker::CreateFirstRoom(DungeonData* _data, const CVector2D& _first_
 	int center_x = _first_room_pos.x;
 	int center_y = _first_room_pos.y;
 
-	printf("[センタールームの位置]　X＝%d　Y＝%d\n", center_x, center_y);
+	//printf("[センタールームの位置]　X＝%d　Y＝%d\n", center_x, center_y);
 
 	//４*４の部屋を真ん中に作る
 	RoomRect center_room(center_x - (int)center_room_size.x / 2, center_y-(int)center_room_size.x / 2,
@@ -149,7 +149,7 @@ void DungeonMarker::CreateNextRoom(DungeonData* data,int _max_room_num)
 				break;
 			}
 
-			printf("[branch_point]　X=%d　Y=%d\n", (int)branch_point.x, (int)branch_point.y);
+			//printf("[branch_point]　X=%d　Y=%d\n", (int)branch_point.x, (int)branch_point.y);
 
 
 			//③branch_pointの地点から部屋を生成する
@@ -205,8 +205,7 @@ void DungeonMarker::CreateNextRoom(DungeonData* data,int _max_room_num)
 				break;
 			}
 
-			printf("[ズレ]＝%d　[ネクストルームの位置]　X＝%d　高さ＝%d\n",
-				(int)point_dir, (int)next_room.m_left, (int)next_room.m_top);
+			//printf("[ズレ]＝%d　[ネクストルームの位置]　X＝%d　高さ＝%d\n",(int)point_dir, (int)next_room.m_left, (int)next_room.m_top);
 
 			if (IsCreateRoom(t_data, next_room)) {
 
@@ -226,13 +225,13 @@ void DungeonMarker::CreateNextRoom(DungeonData* data,int _max_room_num)
 
 				EraseTile(t_data, next_room, TileType::room_id);
 
-				DrawDungeon(data);
+				//DrawDungeon(data);
 
 				CreateNextRoom(data,20);
 			}
 			else {
 
-				printf("[部屋作れませんでした]\n");
+				//printf("[部屋作れませんでした]\n");
 				
 			}
 			if (room_data->size() >= max_room_num)break;
@@ -240,7 +239,7 @@ void DungeonMarker::CreateNextRoom(DungeonData* data,int _max_room_num)
 		if (room_data->size() >= max_room_num)break;
 	}
 
-	printf("\n[これ以上は部屋を作れません]\n");
+	//printf("\n[これ以上は部屋を作れません]\n");
 }
 
 void DungeonMarker::EraseTile(TileData* _t_data, const RoomRect& _r_data,TileType _tile_type)

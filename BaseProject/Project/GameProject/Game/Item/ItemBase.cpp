@@ -23,13 +23,20 @@ void ItemBase::CollisionCheck(CollisionTask* _task)
 {
 	if (_task->GetPriority() != CollisionPriority::eCol_Player)return;
 
-	if (CharacterBase* c = dynamic_cast<CharacterBase*> (_task->GetTask())) {
+	if (Player* c = dynamic_cast<Player*> (_task->GetTask())) {
 
 		if (CCollision::CollisionCapsuleShpere(c->m_Capsule.m_start, c->m_Capsule.m_end, c->m_Capsule.m_rad, m_Transform.position, m_rad)) {
 
-
-			printf("アイテムとりました");
-			SetKill();
+			if (CInput::GetState(0, CInput::ePush, CInput::eButton1)) {
+				//printf("アイテムとりました");
+				PickUpFunc(c);
+				SetKill();
+			}
+			
 		}
 	}
+}
+
+void ItemBase::PickUpFunc(Player* _player)
+{
 }

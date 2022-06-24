@@ -73,7 +73,8 @@ namespace Resource {
 		
 		//ƒAƒCƒeƒ€
 		ADD_RESOURCE("Item_Heart", CModel::CreateModel("Item/Heart.obj"));//
-
+		//ADD_RESOURCE("Item_Bullet", CModel::CreateModel("Wepon/Bullet/Bullet.obj"));//
+		ADD_RESOURCE("Item_Shoe", CModel::CreateModel("Item/Shoe.obj"));//
 
 		ADD_RESOURCE("B222", CModel::CreateModel("Block/Block2_2_2.obj"));
 		ADD_RESOURCE("B224", CModel::CreateModel("Block/Block2_2_4.obj"));

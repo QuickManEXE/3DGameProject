@@ -1,4 +1,6 @@
 #include "EnemySquad.h"
+#include"../../Effect/EffectCollection.h"
+
 
 EnemySquad::EnemySquad() : Base(UpdatePriority::eUp_Enemy, "EnemySquad") , enemy_num(0),is_active(false)
 {
@@ -21,6 +23,8 @@ void EnemySquad::SpawnEnemy(const CVector3D& pos)
 	enemy_num++;
 
 	m_enemys.push_back(new Enemy(Transform(pos, CVector3D::zero, CVector3D(0.01f, 0.01f, 0.01f)), "Golem"));
+
+	EffectCollection::SmokeWave3D(pos);
 }
 
 bool EnemySquad::GetIsDestruction()

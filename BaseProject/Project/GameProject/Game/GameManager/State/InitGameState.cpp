@@ -36,7 +36,6 @@ void InitGameState::Enter()
 	//プレイヤーの生成
 	new Player(Transform(CVector3D(0, 0, 0), CVector3D(0, DtoR(0), 0), CVector3D(0.01f, 0.01f, 0.01f)), "Archer2");
 	
-
 	Goal::Build();
 
 	//ゲームの実行状態に遷移

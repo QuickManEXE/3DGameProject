@@ -1,6 +1,7 @@
 #include "Entrance.h"
 #include"../../StarterAsset.h"
 #include"../CharacterBase/CharacterBase.h"
+#include"../../Effect/EffectCollection.h"
 
 std::vector<Entrance*> Entrance::m_entrances;
 
@@ -34,11 +35,14 @@ Entrance::Entrance(int _entrance_num,const Transform& _transform) : entrance_num
 	m_rad = 2;
 
 	m_block_rad = 4.0f;
+
+	effect_time = 1.0;
 }
 
 void Entrance::Update()
 {
 	OpenEntrance();
+	BlockDust();
 }
 
 void Entrance::Render()
@@ -51,7 +55,7 @@ void Entrance::Render()
 
 	if (m_is_block) {
 
-		Utility::DrawSphere(origin_pos, m_block_rad, CColorRGBA(0.5f, 0.5f, 0, 0.5f));
+		//Utility::DrawSphere(origin_pos, m_block_rad, CColorRGBA(0.5f, 0.5f, 0, 0.5f));
 
 	}
 	
@@ -69,7 +73,7 @@ void Entrance::CollisionCheck(CollisionTask* _task)
 		if (CCollision::CollisionCapsuleShpere(c->m_Capsule.m_start, c->m_Capsule.m_end, c->m_Capsule.m_rad, m_Transform.position, m_rad)) {
 
 			if (CInput::GetState(0, CInput::ePush, CInput::eButton1) && !m_is_open) {
-				printf("ÉSÅ[Éã");
+				
 				m_is_open = true;
 				target_pos = m_Transform.position + target_move;
 			}
@@ -109,5 +113,22 @@ void Entrance::OpenEntrance()
 		}
 
 
+	}
+}
+
+void Entrance::BlockDust()
+{
+
+	if (m_is_block) {
+		
+		effect_time -= DELTA;
+
+		if (effect_time <= 0) {
+
+			EffectCollection::DustSplash3D(origin_pos);
+			EffectCollection::DustSplash3D(origin_pos);
+			EffectCollection::DustSplash3D(origin_pos);
+			effect_time = 1.0f;
+		}
 	}
 }

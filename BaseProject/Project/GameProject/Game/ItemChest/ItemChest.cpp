@@ -3,6 +3,9 @@
 #include"../CharacterBase/CharacterBase.h"
 #include"../Item/ItemBase.h"
 #include"../../Effect/EffectCollection.h"
+#include"../Item/HeartItem.h"
+#include"../Item/AttackSpeedUpItem.h"
+#include"../Item/MoveSpeedUpItem.h"
 
 ItemChest::ItemChest(Transform _transform) :
 	StaticMeshObject(UpdatePriority::eUp_Field, "ItemChest", StarterAsset::Cylinder, RenderPriority::eRd_Field)
@@ -27,6 +30,16 @@ ItemChest::ItemChest(Transform _transform) :
 	target_rotation = CVector3D(DtoR(-45), 0, 0);
 
 	EffectCollection::SmokeWave3D(m_Transform.position, &m_Transform.position);
+
+	CMatrix parent_matrix =
+		CMatrix::MTranselate(m_Transform.position) *
+		CMatrix::MRotation(m_Transform.rotation);
+	m_chest_matrix[container] =
+		parent_matrix * CMatrix::MTranselate(m_chest_transform[container].position) *
+		CMatrix::MRotation(m_chest_transform[container].rotation);
+	m_chest_matrix[lid] =
+		parent_matrix * CMatrix::MTranselate(m_chest_transform[lid].position) *
+		CMatrix::MRotation(m_chest_transform[lid].rotation);
 }
 
 void ItemChest::Update()
@@ -105,9 +118,31 @@ void ItemChest::OpenChest()
 		else {
 
 			if (!m_is_item_drop) {
-				new ItemBase(0, Transform(m_Transform.position + CVector3D(0, 1, 0), CVector3D::zero, CVector3D(1, 1, 1)), "Item_Heart");
+				RamdomItemDrop();
 				m_is_item_drop = true;
 			}
 		}
 	}
+}
+
+void ItemChest::RamdomItemDrop()
+{
+	
+	int index = Utility::Rand(0, 3);
+	
+	switch (index) {
+
+	case 0:
+		new HeartItem(0, Transform(m_Transform.position + CVector3D(0, 1, 0), CVector3D::zero, CVector3D(1, 1, 1)));
+		break;
+	case 1:
+		new AttackSpeedUpItem(1, Transform(m_Transform.position + CVector3D(0, 1, 0), CVector3D::zero, CVector3D(2, 2, 2)));
+		break;
+	case 2:
+		new MoveSpeedUpItem(2, Transform(m_Transform.position + CVector3D(0, 1, 0), CVector3D::zero, CVector3D(0.01,0.01, 0.01)));
+		break;
+	default:
+		break;
+	}
+
 }

@@ -124,7 +124,7 @@ bool FireElemental::SearchPlayer()
 	if (Utility::IsViewInside(view_pos, view_rot, target_pos, DtoR(60.0f), 5.0f)) {
 
 		//printf("視界内に入っています\n");
-		Utility::DrawLine(view_pos, target_pos, CVector4D(0, 1, 0, 1));
+		//Utility::DrawLine(view_pos, target_pos, CVector4D(0, 1, 0, 1));
 		//ターゲットとプレイヤーの視線の先に障害物がないか調べる
 
 		CVector3D dir = target_pos - view_pos;

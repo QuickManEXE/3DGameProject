@@ -6,7 +6,7 @@
 
 float GUI::m_time_ang;
 
-GUI::GUI() :Base(UpdatePriority::eUp_HUD, "UI"), m_text("ÇµÇÂÇ©Ç´Ç§ÇΩÇ∞Åiñ≥óøî≈Åj", 32)
+GUI::GUI() :Base(UpdatePriority::eUp_HUD, "UI"), m_text("ÇlÇrÉSÉVÉbÉN", 32)
 {
 	SetProtect(true);
 
@@ -43,7 +43,7 @@ void GUI::Update()
 
 void GUI::Draw()
 {
-	if (!GameManager::Instance().m_StateAI.IsCurrentState(GameManager::GameManagerState::ExecuteState))return;
+	
 	DrawHP();
 	DrawIcon();
 	DrawAimTarget();
@@ -52,12 +52,12 @@ void GUI::Draw()
 	DrawGameInfo();
 	DrawTimeLimit();
 
-	CVector2D hook_pos(16 + 32, SCREEN_HEIGHT - 200);
+	/*CVector2D hook_pos(16 + 32, SCREEN_HEIGHT - 200);
 
 	for (int i = 0; i < Player::GetInstance()->m_HookNum; i++) {
 		m_hook_icon.SetPos(hook_pos + CVector2D(0, 64 * i));
 		m_hook_icon.Draw();
-	}
+	}*/
 
 	DrawDubugInfo();
 }
@@ -229,6 +229,8 @@ void GUI::InitMiniMap(DungeonMarker::DungeonData _DungeonData_For_MiniMap)
 
 void GUI::DrawMiniMap(DungeonMarker::DungeonData _DungeonData_For_MiniMap)
 {
+	if (!GameManager::Instance().m_StateAI.IsCurrentState(GameManager::GameManagerState::ExecuteState))return;
+
 	int size = 6;
 	CVector2D p(1100, 150);
 	for (int i = 0; i < MAP_HEIGHT; i++) {
@@ -302,12 +304,13 @@ void GUI::DrawGameInfo() {
 
 void GUI::DrawTimeLimit()
 {
+	if (!GameManager::Instance().m_StateAI.IsCurrentState(GameManager::GameManagerState::ExecuteState))return;
 
 	int second =  (int)GameManager::Instance().m_current_game_time % 60;
 	int  min = (int)GameManager::Instance().m_current_game_time / 60;
 
 	
-	m_text.Draw(1100, 50, 1, 0, 1, "TIME %d:%d",min,second);
-	m_text.Draw(1100, 100, 1, 0, 1, "äK: %d / %d", GameManager::Instance().m_CurrentDungeonNum, GameManager::Instance().m_ClearDungeonNum);
+	m_text.Draw(1100, 50, 1, 0, 1, "TIME %d:%02d",min,second);
+	//m_text.Draw(1100, 100, 1, 0, 1, "äK: %d / %d", GameManager::Instance().m_CurrentDungeonNum, GameManager::Instance().m_ClearDungeonNum);
 
 }

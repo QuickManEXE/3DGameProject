@@ -41,6 +41,8 @@ private:
 	CVector3D origin_pos;
 
 	float m_block_rad;
+
+	float effect_time;
 public:
 	Entrance(int entrance_num,const Transform& _transform);
 	void Update()override;
@@ -50,4 +52,5 @@ public:
 	void SetIsBlock(bool _is_block) {
 		m_is_block = _is_block;
 	}
+	void BlockDust();
 };

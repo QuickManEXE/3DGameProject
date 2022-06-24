@@ -21,4 +21,7 @@ public:
 	static void LightSplash3D(const CVector3D& pos, CVector3D* p_parent_pos = nullptr);
 	//地点に円のエネルギーが広がるエフェクト
 	static void BulletSplash3D(const CVector3D& pos, CVector3D* p_parent_pos = nullptr);
+	//地点に砂煙を出す
+	static void DustSplash3D(const CVector3D& pos, CVector3D* p_parent_pos = nullptr);
+
 };

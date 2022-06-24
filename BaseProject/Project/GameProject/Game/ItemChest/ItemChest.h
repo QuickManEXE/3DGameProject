@@ -40,5 +40,5 @@ public:
 	void Render()override;
 	void CollisionCheck(CollisionTask* _task);
 	void OpenChest();
-
+	void RamdomItemDrop();
 };

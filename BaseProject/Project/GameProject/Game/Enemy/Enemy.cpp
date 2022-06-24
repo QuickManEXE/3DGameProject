@@ -41,7 +41,7 @@ Enemy::Enemy(const Transform& _transform, const char* _modelName):
 
 	m_rad = 0.2f;
 
-	m_HitPoint = 1; rand() % 3 + 5;
+	m_HitPoint = rand() % 2 + 1;
 
 	// 描画タスクに登録
 	//m_Render.RegistRender(this, (RenderFunc)&Enemy::Render, RenderPriority::eRd_Enemy, "Enemy");
@@ -183,7 +183,7 @@ bool Enemy::SearchPlayer()
 	if (Utility::IsViewInside(view_pos, view_rot, target_pos, DtoR(60.0f), 5.0f)) {
 
 		//printf("視界内に入っています\n");
-		Utility::DrawLine(view_pos, target_pos, CVector4D(0, 1, 0, 1));
+		//Utility::DrawLine(view_pos, target_pos, CVector4D(0, 1, 0, 1));
 		//ターゲットとプレイヤーの視線の先に障害物がないか調べる
 
 		CVector3D dir = target_pos - view_pos;

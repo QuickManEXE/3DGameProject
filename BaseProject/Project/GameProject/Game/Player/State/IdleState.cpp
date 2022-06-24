@@ -59,7 +59,7 @@ void IdleState::Move()
 	//方向キーの入力方向ベクトル
 	CVector3D key_dir(0, 0, 0);
 	//キャラクターの移動量
-	float speed = owner->m_Param.GetParam(Player::move_speed);
+	float speed = owner->GetMoveSpeed();
 	//もしSHIFTを押したなら走る
 	if (HOLD(CInput::eButton8)) {
 		is_run = true;

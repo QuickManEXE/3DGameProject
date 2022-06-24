@@ -12,12 +12,15 @@ BossState::BossState(GameManager* owner) : State(owner)
 void BossState::Enter()
 {
 	TaskManager::GetInstance()->AllKill();
-	
+
 	new SkyBox();
 
 	if (Player* p = dynamic_cast<Player*> (TaskManager::GetInstance()->FindTask(UpdatePriority::eUp_Player))) {
 		p->m_Transform.position = CVector3D(0, 0, 40);
 	}
+
+	//プレイヤーのステートを通常状態にする
+	Player::GetInstance()->m_StateAI.ChangeState(PlayerState::IdleState);
 
 	mp_field = new Geometry(Transform(CVector3D(0, 0, 0), CVector3D(0, 0, 0), CVector3D(50, 50, 50)), "Cave");
 

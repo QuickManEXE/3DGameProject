@@ -101,6 +101,15 @@ public:
 
 	float m_HitPoint;
 
+	float m_HitPoint_max;
+
+	float GetHitPoint() {
+		return m_HitPoint;
+	}
+	void SetHitPoint(float _hit_point) {
+		m_HitPoint = max(0, min(m_HitPoint_max, _hit_point));
+	}
+
 	//エイムターゲットが壁に当たっているかどうか
 	bool m_IsLookOn;
 	//矢がフックか普通の矢かどうか
@@ -125,6 +134,47 @@ public:
 	bool m_IsHangRope;
 	//ジャンプできるかどうか
 	bool m_IsJump;
+	//攻撃速度ステータス
+	float m_attack_speed;
+	//移動速度ステータス
+	float m_move_speed;
+	//なんこ攻撃速度アイテムを持っているか
+	int m_attack_speed_item_num;
+	//何個移動速度アイテムを持っているか
+	int m_move_speed_item_num;
+
+	float GetAttackSpeed() {
+		return m_attack_speed;
+	}
+	void SetAttackSpeed(float _speed) {
+		m_attack_speed = _speed;
+	}
+	void UpdateAttackSpeed(int attack_spped_item_num) {
+		SetAttackSpeed(1.0f + (0.1f * attack_spped_item_num));
+	}
+	float GetMoveSpeed() {
+		return m_move_speed;
+	}
+	void SetMoveSpeed(float _speed) {
+		m_move_speed = _speed;
+	}
+	void UpdateMoveSpeed(int move_spped_item_num) {
+		SetMoveSpeed(30.0f + (1.0f * move_spped_item_num));
+	}
+	int GetAttackSpeedItemNum() {
+		return m_attack_speed_item_num;
+	}
+	void SetAttackSpeedItemNum(int _num) {
+		m_attack_speed_item_num = max(0, _num);
+	}
+	int GetMoveSpeedItemNum() {
+		return m_move_speed_item_num;
+	}
+	void SetMoveSpeedItemNum(int _num) {
+		m_move_speed_item_num = max(0, _num);
+	}
+	
+
 public:
 	//初期値のv0を配列にいれる
 	std::vector<CVector3D> vecto;

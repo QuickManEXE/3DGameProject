@@ -14,6 +14,10 @@ void ArrowAimState::Enter()
 	SOUND(SoundResource::SE_ShotArrowStart.c_str())->Play3D(owner->m_Transform.position,CVector3D::zero);
 
 	owner->m_AimState = 0;
+
+	float speed = owner->GetAttackSpeed();
+	//アニメーションのスピードを変更
+	owner->GetModel()->SetAnimationSpeed(speed);
 }
 
 void ArrowAimState::Execute()
@@ -30,6 +34,7 @@ void ArrowAimState::Execute()
 
 void ArrowAimState::Exit()
 {
+	owner->GetModel()->SetAnimationSpeed(1.0f);
 }
 
 void ArrowAimState::CollisionCheck(CollisionTask* _task)

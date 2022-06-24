@@ -30,7 +30,10 @@
     <ClInclude Include="Game\GameManager\State\InitGameState.h" />
     <ClInclude Include="Game\GameManager\State\TutorialState.h" />
     <ClInclude Include="Game\ItemChest\ItemChest.h" />
+    <ClInclude Include="Game\Item\AttackSpeedUpItem.h" />
+    <ClInclude Include="Game\Item\HeartItem.h" />
     <ClInclude Include="Game\Item\ItemBase.h" />
+    <ClInclude Include="Game\Item\MoveSpeedUpItem.h" />
     <ClInclude Include="Game\SkeletalMeshObject.h" />
     <ClInclude Include="Game\Arrow.h" />
     <ClInclude Include="Game\Camera.h" />
@@ -127,7 +130,10 @@
     <ClCompile Include="Game\GameManager\State\InitGameState.cpp" />
     <ClCompile Include="Game\GameManager\State\TutorialState.cpp" />
     <ClCompile Include="Game\ItemChest\ItemChest.cpp" />
+    <ClCompile Include="Game\Item\AttackSpeedUpItem.cpp" />
+    <ClCompile Include="Game\Item\HeartItem.cpp" />
     <ClCompile Include="Game\Item\ItemBase.cpp" />
+    <ClCompile Include="Game\Item\MoveSpeedUpItem.cpp" />
     <ClCompile Include="Game\SkeletalMeshObject.cpp" />
     <ClCompile Include="Game\Arrow.cpp" />
     <ClCompile Include="Game\Camera.cpp" />
@@ -293,7 +299,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../lib;../Debug</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;GLFW.lib;glewd.lib;glpng.lib;GLLibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -308,7 +314,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;GLFW.lib;glew.lib;glpng.lib;GLLibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../lib/x64;../Debug</AdditionalLibraryDirectories>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -327,6 +333,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>../lib;../Release</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;GLFW.lib;glew.lib;glpng.lib;GLLibrary.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

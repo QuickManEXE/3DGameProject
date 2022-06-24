@@ -274,6 +274,15 @@
     <ClInclude Include="Game\GameManager\State\EndGameState.h">
       <Filter>Game\GameManager\State</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Item\HeartItem.h">
+      <Filter>Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Item\AttackSpeedUpItem.h">
+      <Filter>Game\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Item\MoveSpeedUpItem.h">
+      <Filter>Game\Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TaskSystem\CollisionTask.cpp">
@@ -519,6 +528,15 @@
     </ClCompile>
     <ClCompile Include="Game\GameManager\State\EndGameState.cpp">
       <Filter>Game\GameManager\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Item\HeartItem.cpp">
+      <Filter>Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Item\AttackSpeedUpItem.cpp">
+      <Filter>Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Item\MoveSpeedUpItem.cpp">
+      <Filter>Game\Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
