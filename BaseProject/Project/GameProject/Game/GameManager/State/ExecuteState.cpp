@@ -61,7 +61,7 @@ void ExecuteState::Enter()
 	owner->m_current_game_time = 60.0f * 5.0f;
 	owner->m_time_limit = 60.0f * 5.0f;
 
-	SOUND("BGM_LostPlace")->Play(); 
+	SOUND("BGM_LostPlace")->Play(true); 
 
 }
 
