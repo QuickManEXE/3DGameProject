@@ -3,6 +3,13 @@
 #include"../Singleton/Singleton.h"
 #include"Map.h"
 
+__interface IInterface
+{
+
+};
+
+
+
 class GUI :public Base,public Singleton<GUI>
 {
 	friend class Singleton<GUI>;
@@ -21,6 +28,8 @@ private:
 
 	RenderTask m_Draw;
 
+	CollisionTask m_Collision;
+
 	CFont m_text;
 
 	CImage m_gui;
@@ -29,6 +38,13 @@ private:
 
 	//ミニマップ用のダンジョンのデータ　プレイヤーの半径がわかるようになっていく
 	DungeonMarker::DungeonData m_DungeonData_For_MiniMap;
+
+	//カメラからUIを表示するオブジェクトまでの距離
+	float m_camera_ui_length;
+
+	//現在カメラの中心に映ったもの
+
+
 public:
 	static float m_time_ang;
 	GUI();
@@ -45,4 +61,10 @@ public:
 	void UpdateMiniMap(DungeonMarker::DungeonData _DungeonData_For_MiniMap);
 	void DrawGameInfo();
 	void DrawTimeLimit();
+	//カメラの中心に映ったオブジェクトの説明を表示する
+	void DrawUIObject();
+	//カメラの中心に映ったオブジェクトを取る
+	void CollisionCheck(CollisionTask* _task);
+	
+	void DrawHookIcon();
 };

@@ -6,7 +6,7 @@
 ItemBase::ItemBase(int _item_id, const Transform& transform, const char* model_name) :
 	StaticMeshObject(UpdatePriority::eUp_Field, "Item", model_name, RenderPriority::eRd_Field),m_item_id(_item_id)
 {
-	m_Col.RegistCollision(CollisionTask::eLayer_Game, this, (CollisionFunc)&ItemBase::CollisionCheck, CollisionPriority::eCol_Field, model_name);
+	m_Col.RegistCollision(CollisionTask::eLayer_Game, this, (CollisionFunc)&ItemBase::CollisionCheck, CollisionPriority::eCol_Item, model_name);
 
 	SetTransform(transform);
 	m_Model.SetPos(transform.position);
@@ -28,7 +28,8 @@ void ItemBase::CollisionCheck(CollisionTask* _task)
 		if (CCollision::CollisionCapsuleShpere(c->m_Capsule.m_start, c->m_Capsule.m_end, c->m_Capsule.m_rad, m_Transform.position, m_rad)) {
 
 			if (CInput::GetState(0, CInput::ePush, CInput::eButton1)) {
-				//printf("アイテムとりました");
+				
+				Utility::DebugPrint("アイテムを取りました\n");
 				PickUpFunc(c);
 				SetKill();
 			}

@@ -26,18 +26,10 @@ void Field1State::Enter()
 		new Enemy(Transform(CVector3D(-55, 20, 48), CVector3D::zero, CVector3D(0.01f, 0.01f, 0.01f)), "Golem");
 
 	}
-	/*
-	Rope* r = new Rope(Transform(CVector3D(0,5,20),CVector3D(DtoR(30),0, DtoR(30))),0.2f);
 
-	for (int i = 1; i < 30; i++) {
-		
-		
-		Rope* temp = new Rope(Transform(CVector3D(0, 5, 20), CVector3D(DtoR(30), 0, DtoR(30))), 0.2f, r);
-		r = temp;
+	auto enemys = TaskManager::GetInstance()->FindTasks("Enemy");
 
-	}
-	*/
-	owner->m_EnemyCount = 1;
+	owner->m_EnemyCount = enemys.size();
 
 	t = 5.0f;
 }

@@ -13,6 +13,7 @@ Arrow::Arrow() :Base(UpdatePriority::eUp_Player_Attack, "PlayerArrow"), mp_paren
 	// Õ“Ë”»’èƒ^ƒXƒN‚É“o˜^
 	m_Collision.RegistCollision(CollisionTask::eLayer_Game, this, (CollisionFunc)&Arrow::CollisionCheck, CollisionPriority::eCol_Player_Attack, "PlayerArrow");
 
+	m_time = 0.0f;
 }
 void Arrow::Update() {
 
@@ -40,8 +41,15 @@ void Arrow::Update() {
 		m_Transform.position += m_Transform.m_pos_vec;
 	}
 	
+	//Á‚¦‚éˆ—
+	if (m_shot && !mp_parent_model) {
 
-	//if (!mp_parent_model)SetKill();
+		m_time += DELTA;
+		if (m_time >= 5.0f) {
+			SetKill();
+		}
+	}
+
 }
 
 void Arrow::CollisionCheck(CollisionTask* _task)

@@ -1,6 +1,7 @@
 #include "DeathState.h"
 #include"../../../SoundResource.h"
 #include"../../GameManager/GameManager.h"
+#include"../../ItemChest/ItemChest.h"
 
 DeathState::DeathState(Enemy* owner) : State(owner),rand_jam(0)
 {
@@ -36,7 +37,8 @@ void DeathState::Execute()
 		
 		if (owner->GetModel()->GetMaterial(0)->m_alpha <= 0) {
 
-			
+			//アイテム出現
+			new ItemChest(Transform(owner->m_Transform.position, owner->m_Transform.rotation, CVector3D(1, 1, 1)));
 			owner->SetKill();
 			
 		}

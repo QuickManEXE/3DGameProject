@@ -48,17 +48,10 @@ void GUI::Draw()
 	DrawIcon();
 	DrawAimTarget();
 	DrawAimTarget2();
-	DrawMiniMap(m_DungeonData_For_MiniMap);
+	//DrawMiniMap(m_DungeonData_For_MiniMap);
 	DrawGameInfo();
 	DrawTimeLimit();
-
-	/*CVector2D hook_pos(16 + 32, SCREEN_HEIGHT - 200);
-
-	for (int i = 0; i < Player::GetInstance()->m_HookNum; i++) {
-		m_hook_icon.SetPos(hook_pos + CVector2D(0, 64 * i));
-		m_hook_icon.Draw();
-	}*/
-
+	DrawHookIcon();
 	DrawDubugInfo();
 }
 
@@ -313,4 +306,14 @@ void GUI::DrawTimeLimit()
 	m_text.Draw(1100, 50, 1, 0, 1, "TIME %d:%02d",min,second);
 	//m_text.Draw(1100, 100, 1, 0, 1, "ŠK: %d / %d", GameManager::Instance().m_CurrentDungeonNum, GameManager::Instance().m_ClearDungeonNum);
 
+}
+
+void GUI::DrawHookIcon()
+{
+	CVector2D hook_pos(16 + 32, SCREEN_HEIGHT - 200);
+
+	for (int i = 0; i < Player::GetInstance()->m_HookNum; i++) {
+		m_hook_icon.SetPos(hook_pos + CVector2D(0, 64 * i));
+		m_hook_icon.Draw();
+	}
 }

@@ -415,14 +415,42 @@ CVector3D Utility::GetInputKeyDir()
 
 	return key_dir;
 }
+
+void Utility::DebugPrint(const char* format, ...)
+{
+#ifdef _DEBUG
+
+	char buf[256];
+	va_list ap;
+	int length = 0;
+
+
+	if (format == NULL)
+	{
+		return;
+	}
+
+	//文字列変換 
+	va_start(ap, format);
+	vprintf_s(format, ap);
+	//vsprintf_s(buf, format, ap);
+	va_end(ap);
+
+#endif // _DEBUG
+}
+
 void Utility::DebugLocalDir(CVector3D pos, CVector3D rot)
 {
+#ifdef _DEBUG
+
 	CMatrix m = CMatrix::MRotation(rot);
 
 	//キャラクターのローカルのxyz方向
 	Utility::DrawLine(pos, pos + m.GetLeft(), CVector4D(1, 0, 0, 1.0f));
 	Utility::DrawLine(pos, pos + m.GetUp(), CVector4D(0, 1, 0, 1.0f));
 	Utility::DrawLine(pos, pos + m.GetFront(), CVector4D(0, 0, 1, 1.0f));
+
+#endif // _DEBUG
 }
 bool Utility::IsViewInside(const CVector3D& view_pos, const CVector3D& view_rot, const CVector3D& target_pos, float view_ang, float view_length)
 {

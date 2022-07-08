@@ -16,7 +16,8 @@ namespace SoundResource {
 	static const string SE_MonsterFootSteps = "SE_MonsterFootSteps";
 	static const string SE_Punch1 = "SE_Punch1";
 	static const string SE_EarthQuake = "SE_EarthQuake";
-
+	static const string SE_OpenChest = "SE_OpenChest";
+	static const string SE_GetItem = "SE_GetItem";
 
 	static const string BGM_Title = "BGM_Title";
 	static const string BGM_LostPlace = "BGM_LostPlace";
@@ -55,6 +56,8 @@ namespace SoundResource {
 		SoundLoad(SoundResource::SE_MonsterCry1, true);
 		SoundLoad(SoundResource::SE_MonsterCry2, true);
 		SoundLoad(SoundResource::SE_MonsterCry3, true);
+		SoundLoad(SoundResource::SE_OpenChest, true);
+		SoundLoad(SoundResource::SE_GetItem, true);
 		//SoundLoad(SoundResource::SE_MonsterFootSteps);
 
 		SOUND(SoundResource::SE_MonsterFootSteps.c_str())->Load("Sound/SE/SE_MonsterFootSteps.wav");

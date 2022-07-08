@@ -6,6 +6,7 @@
 #include"../Item/HeartItem.h"
 #include"../Item/AttackSpeedUpItem.h"
 #include"../Item/MoveSpeedUpItem.h"
+#include"../../SoundResource.h"
 
 ItemChest::ItemChest(Transform _transform) :
 	StaticMeshObject(UpdatePriority::eUp_Field, "ItemChest", StarterAsset::Cylinder, RenderPriority::eRd_Field)
@@ -88,7 +89,10 @@ void ItemChest::CollisionCheck(CollisionTask* _task)
 
 
 			if (CInput::GetState(0, CInput::ePush, CInput::eButton1)) {
-				printf("ŠJ‚¯‚Ü‚µ‚½");
+				
+				Utility::DebugPrint("ŠJ‚¯‚Ü‚µ‚½\n");
+
+				SOUND(SoundResource::SE_OpenChest.c_str())->Play3D(m_Transform.position, CVector3D::zero);
 
 				m_is_open = true;
 

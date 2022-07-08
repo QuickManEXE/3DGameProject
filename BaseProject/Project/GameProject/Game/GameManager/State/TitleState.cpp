@@ -120,7 +120,7 @@ void TitleState::UpdateTitle()
 		if (m_t >= 1.0f) {
 			SOUND(SoundResource::BGM_Title.c_str())->Stop();
 
-			owner->m_StateAI.ChangeState(GameManager::GameManagerState::InitGameState);
+			owner->m_StateAI.ChangeState(GameManager::GameManagerState::OpeningState);
 		}
 	default:
 		break;

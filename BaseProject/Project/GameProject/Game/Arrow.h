@@ -19,6 +19,8 @@ public:
 	CVector3D m_e;
 
 	CVector3D* m_rope_pos;
+
+	float m_time;
 public:
 	//コンストラクタ
 	Arrow();

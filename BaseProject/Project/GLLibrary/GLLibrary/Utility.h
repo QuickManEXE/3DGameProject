@@ -117,8 +117,9 @@ namespace Utility {
 	//安藤作
 	//移動キー入力取得
 	CVector3D GetInputKeyDir();
-	//マウスの移動で視点移動
 
+	//デバック用のPrint
+	void DebugPrint(const char* format, ...);
 
 	//ローカルベクトル表示
 	void DebugLocalDir(CVector3D pos, CVector3D rot);

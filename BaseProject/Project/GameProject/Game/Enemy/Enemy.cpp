@@ -43,9 +43,6 @@ Enemy::Enemy(const Transform& _transform, const char* _modelName):
 
 	m_HitPoint = rand() % 2 + 1;
 
-	// ï`âÊÉ^ÉXÉNÇ…ìoò^
-	//m_Render.RegistRender(this, (RenderFunc)&Enemy::Render, RenderPriority::eRd_Enemy, "Enemy");
-
 	// è’ìÀîªíËÉ^ÉXÉNÇ…ìoò^
 	m_Col.RegistCollision(CollisionTask::eLayer_Game,this, (CollisionFunc)&Enemy::CollisionCheck, CollisionPriority::eCol_Enemy, "Enemy");
 	m_AttackCol.RegistCollision(CollisionTask::eLayer_Game, this, (CollisionFunc)&Enemy::AttackCollide, CollisionPriority::eCol_Enemy_Attack, "Enemy");
